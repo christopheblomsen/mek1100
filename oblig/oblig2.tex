@@ -86,8 +86,8 @@
 %oppgave a
 	\addcontentsline{toc}{section}{a)}
 	\section*{a)}\label{ass:a}
-	Lorem ipsum
-	\begin{lstlisting}[Kode oppgave a)]
+	All kode vil ligge i samme python fil så de relevante kode snuttene er tilgjengelig på de tilsvarende deloppgavene. Hele filen kan finnes i Appendikset.
+	\begin{lstlisting}[caption=Kode oppgave a)]
 import scipy.io as sio
 import numpy as np
 import matplotlib.pyplot as plt
@@ -133,12 +133,12 @@ print(y)
 		\text{[ 49.5  49.5  49.5 ...  49.5  49.5  49.5]}\\
 		\text{[ 50.   50.   50.  ...  50.   50.   50. ]]}\\
 	\end{tcolorbox}
-	Ser da at griddet i $xy$-planet har et regulært intervall på 0.5 mm i begge rettninger
+	Ser da at griddet i $xy$-planet har et regulært intervall på $0.5$ mm i begge rettninger. Samt at $y$-koordinatene spenner ut hele diameteren til røret.
 %oppgave b
 	\addcontentsline{toc}{section}{b)}
 	\section*{b)}\label{ass:b}
-	Lorem ipsum
-	\begin{lstlisting}[caption: Kode oppgave b]
+	Observerer fra presentasjonen av eksperimentet at det er væskefase i den nedre halvdelen av røret og gassfase i den andre halvdelen.
+	\begin{lstlisting}[caption=Kode oppgave b]
 velocity = np.sqrt(u**2 + v**2)
 
 plt.subplot(2, 1, 1)
@@ -154,12 +154,12 @@ plt.colorbar(air_bender)
 plt.savefig("oppgave_b.png")
 plt.show()
 	\end{lstlisting}
-
+	Det produserer følgende \hyperref[fig:b]{plot}
 %oppgave c
 	\addcontentsline{toc}{section}{c)}
 	\section*{c)}\label{ass:c}
-	Lorem ipsum
-	\begin{lstlisting}
+	Velger å bruke vært femte element i pilplottet
+	\begin{lstlisting}[caption=Kode til oppgave c]
 def rectangle(x1, x2, y1, y2):
     position1 = (x[x2, x1], y[x2, y1])
     position2 = (x[y2, y1], y[y2, y1])
@@ -190,7 +190,7 @@ def draw_rectangles():
     rectangle(rectangle3_values[0], rectangle3_values[1],
               rectangle3_values[2], rectangle3_values[3])
 
-
+draw_rectangles()
 plt.plot(xit, yit, "k*")
 num_skip = 5
 plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],
@@ -202,12 +202,12 @@ plt.ylabel("y")
 
 plt.savefig("oppgave_c.png")
 	\end{lstlisting}
-
+	Denne kodesnutten produserer følgede \hyperref[fig:c]{plot}
 %oppgave d
 	\addcontentsline{toc}{section}{c)}
 	\section*{c)}\label{ass:d}
-	Lorem ipsum
-	\begin{lstlisting}
+	I numpy pakken så finnes det flere finne funksjoner, i denne oppgaven så kommer jeg til å bruke numpy.gradient funksjonen. Det den gjør er å regner ut gradienten til arrays. Hvis man også bruker keyword argumentet "axis" så kan man velge hvilken av komponente du vil ha. I kodesnutten under er da dette oppnådd med at vi i dudx kun trekker ut x komponente.
+	\begin{lstlisting}[caption=Oppgave d]
 dudx = np.gradient(u, axis=0)
 dvdy = np.gradient(v, axis=1)
 
@@ -239,25 +239,25 @@ plt.savefig("oppgave_d.png")
 	\newpage
 	\begin{figure}[h!]
 		\centering
-		\caption{<++>}
+		\caption{Graf til oppgave \hyperref[ass:b]{b}}
 		\label{fig:b}
 		\includegraphics{oppgave_b.png}
 	\end{figure}
 	\begin{figure}[h!]
 		\centering
-		\caption{Graf til <++>}
+		\caption{Graf til oppgave \hyperref[ass:c]{c}} 
 		\label{fig:c}
 		\includegraphics{oppgave_c.png}
 	\end{figure}
 	\begin{figure}[h!]
 		\centering
-		\caption{<++>}
+		\caption{Graf til oppgave \hyperref[ass:d]{d}}
 		\label{fig:d}
 		\includegraphics{oppgave_d.png}
 	\end{figure}
 	\begin{figure}[h!]
 		\centering
-		\caption{<++>}
+		\caption{Graf til oppgave \hyperref[ass:e]{e}}
 		\label{fig:e}
 		\includegraphics{oppgave_e.png}
 	\end{figure}
