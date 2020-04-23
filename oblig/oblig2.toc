@@ -1,0 +1,8 @@
+\babel@toc {norsk}{}
+\contentsline {section}{a)}{1}{section*.3}% 
+\contentsline {section}{b)}{1}{lstnumber.-1.21}% 
+\contentsline {section}{c)}{2}{lstnumber.-2.14}% 
+\contentsline {section}{c)}{3}{lstnumber.-3.41}% 
+\contentsline {section}{e)}{3}{lstnumber.-4.10}% 
+\contentsline {section}{f)}{3}{section*.8}% 
+\contentsline {section}{g)}{3}{section*.9}% 

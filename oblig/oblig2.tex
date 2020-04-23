@@ -1,0 +1,265 @@
+% Standard stuff
+	\documentclass[a4paper,10pt,norsk]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[norsk]{babel}
+	\usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry,enumerate,commath,tcolorbox}
+	% colors in text
+	\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+	% Hyper refs
+	\usepackage[colorlinks]{hyperref}
+	%inkspace
+	\usepackage{import}
+	\usepackage{xifthen}
+	\usepackage{pdfpages}
+	\usepackage{transparent}
+
+%Colour scheme for hyperlinks
+	\hypersetup{%
+		colorlinks,
+		citecolor=Blue,
+		linkcolor=Blue,
+		urlcolor=Blue}
+
+% Document formatting
+	\setlength{\parindent}{0mm}
+	\setlength{\parskip}{1.5mm}
+
+%Color scheme for listings
+	\usepackage{textcomp}
+	\definecolor{listinggray}{gray}{0.9}
+	\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+%Listings configuration
+	\usepackage{listings}
+	\lstset{%
+		backgroundcolor=\color{lbcolor},
+		tabsize=4,
+		rulecolor=,
+		language=python,
+		basicstyle=\scriptsize,
+		upquote=true,
+		aboveskip={1.5\baselineskip},
+		columns=fixed,
+		numbers=left,
+		showstringspaces=false,
+		extendedchars=true,
+		breaklines=true,
+		prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+		frame=single,
+		showtabs=false,
+		showspaces=false,
+		showstringspaces=false,
+		identifierstyle=\ttfamily,
+		keywordstyle=\color[rgb]{0,0,1},
+		commentstyle=\color[rgb]{0.133,0.545,0.133},
+		stringstyle=\color[rgb]{0.627,0.126,0.941}
+	}
+
+%new commands
+	\renewcommand{\lstlistingname}{Kode}
+	\renewcommand{\lstlistlistingname}{\lstlistingname}
+	\newcommand{\dd}[1]{\mathrm{d}#1}
+	\def\doubleunderline#1{\underline{\underline{#1}}}
+
+	\newcommand{\incfig}[2][1]{%
+		\def\svgwidth{#1\columnwidth}
+		\import{./figures/}{#2.pdf_tex}
+	}
+	\pdfsuppresswarningpagegroup=1
+%opening
+	\title{}
+	\author{%
+		Christophe Blomsen\\
+		\texttt{\href{mailto:chriskbl@student.matnat.uio.no}{chriskbl@student.matnat.uio.no}}
+		}
+
+\begin{document}
+%Titlepage
+	\begin{titlepage}
+	\maketitle
+	\tableofcontents
+	\listoffigures
+	\lstlistoflistings
+
+	\end{titlepage}
+
+%oppgave a
+	\addcontentsline{toc}{section}{a)}
+	\section*{a)}\label{ass:a}
+	Lorem ipsum
+	\begin{lstlisting}[Kode oppgave a)]
+import scipy.io as sio
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = sio.loadmat('data.mat')
+x = data.get('x')
+y = data.get('y')
+u = data.get('u')
+v = data.get('v')
+xit = data.get('xit')
+yit = data.get('yit')
+
+print(np.shape(x))
+print(np.shape(y))
+print(np.shape(u))
+print(np.shape(v))
+print(np.shape(xit))
+print(np.shape(yit))
+
+print(x)
+print(y)
+	\end{lstlisting}
+	Utskrift til terminalen blir
+	\begin{tcolorbox}
+		x shape is (201, 194)\\
+		y shape is (201, 194)\\
+		u shape is (201, 194)\\
+		v shape is (201, 194)\\
+		xit shape is (1, 194)\\
+		yit shape is (1, 194)\\
+		\text{[[ 0. 0.5  1.  ... 95.5 96.  96.5]}\\
+		\text{[ 0.   0.5  1.  ... 95.5 96.  96.5]}\\
+		\text{[ 0.   0.5  1.  ... 95.5 96.  96.5]}\\
+		...\\
+		\text{[ 0.   0.5  1.  ... 95.5 96.  96.5]}\\
+		\text{[ 0.   0.5  1.  ... 95.5 96.  96.5]}\\
+		\text{[ 0.   0.5  1.  ... 95.5 96.  96.5]]}\\
+		\text{[[-50.  -50.  -50.  ... -50.  -50.  -50. ]}\\
+		\text{[-49.5 -49.5 -49.5 ... -49.5 -49.5 -49.5]}\\
+		\text{[-49.  -49.  -49.  ... -49.  -49.  -49. ]}\\
+		...\\
+		\text{[ 49.   49.   49.  ...  49.   49.   49. ]}\\
+		\text{[ 49.5  49.5  49.5 ...  49.5  49.5  49.5]}\\
+		\text{[ 50.   50.   50.  ...  50.   50.   50. ]]}\\
+	\end{tcolorbox}
+	Ser da at griddet i $xy$-planet har et regulært intervall på 0.5 mm i begge rettninger
+%oppgave b
+	\addcontentsline{toc}{section}{b)}
+	\section*{b)}\label{ass:b}
+	Lorem ipsum
+	\begin{lstlisting}[caption: Kode oppgave b]
+velocity = np.sqrt(u**2 + v**2)
+
+plt.subplot(2, 1, 1)
+plt.plot(xit, yit, "k*")
+water_bender = plt.contourf(x, y, velocity, np.linspace(0, 500, 100))
+plt.colorbar(water_bender)
+
+plt.subplot(2, 1, 2)
+plt.plot(xit, yit, "k*")
+air_bender = plt.contourf(x, y, velocity, np.linspace(1000, 5000, 100))
+plt.colorbar(air_bender)
+
+plt.savefig("oppgave_b.png")
+plt.show()
+	\end{lstlisting}
+
+%oppgave c
+	\addcontentsline{toc}{section}{c)}
+	\section*{c)}\label{ass:c}
+	Lorem ipsum
+	\begin{lstlisting}
+def rectangle(x1, x2, y1, y2):
+    position1 = (x[x2, x1], y[x2, y1])
+    position2 = (x[y2, y1], y[y2, y1])
+
+    # Bottom
+    plt.plot([position1[0], position2[0]], [position1[1], position1[1]], "r")
+
+    # Right
+    plt.plot([position2[0], position2[0]], [position1[1], position2[1]], "g")
+
+    # Top
+    plt.plot([position1[0], position2[0]], [position2[1], position2[1]], "b")
+
+    # Left
+    plt.plot([position1[0], position1[0]], [position1[1], position2[1]], "k")
+
+
+def draw_rectangles():
+    rectangle1_values = [35, 160, 70, 170]
+    rectangle(rectangle1_values[0], rectangle1_values[1],
+              rectangle1_values[2], rectangle1_values[3])
+
+    rectangle2_values = [35, 85, 70, 100]
+    rectangle(rectangle2_values[0], rectangle2_values[1],
+              rectangle2_values[2], rectangle2_values[3])
+
+    rectangle3_values = [35, 50, 70, 60]
+    rectangle(rectangle3_values[0], rectangle3_values[1],
+              rectangle3_values[2], rectangle3_values[3])
+
+
+plt.plot(xit, yit, "k*")
+num_skip = 5
+plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],
+           u[::num_skip, ::num_skip], v[::num_skip, ::num_skip])
+
+plt.title("Oppgave c)")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.savefig("oppgave_c.png")
+	\end{lstlisting}
+
+%oppgave d
+	\addcontentsline{toc}{section}{c)}
+	\section*{c)}\label{ass:d}
+	Lorem ipsum
+	\begin{lstlisting}
+dudx = np.gradient(u, axis=0)
+dvdy = np.gradient(v, axis=1)
+
+divergence = dudx + dvdy
+print(f"The divergence is {divergence}")
+
+plt.contourf(x, y, divergence)
+plt.colorbar()
+plt.title("Oppgave d)")
+plt.savefig("oppgave_d.png")
+	\end{lstlisting}
+
+%oppgave e
+	\addcontentsline{toc}{section}{e)}
+	\section*{e)}\label{ass:e}
+	Lorem ipsum
+
+%oppgave f
+	\addcontentsline{toc}{section}{f)}
+	\section*{f)}\label{ass:f}
+	Lorem ipsum
+
+%oppgave g
+	\addcontentsline{toc}{section}{g)}
+	\section*{g)}\label{ass:g}
+	Lorem ipsum
+
+%plots
+	\newpage
+	\begin{figure}[h!]
+		\centering
+		\caption{<++>}
+		\label{fig:b}
+		\includegraphics{oppgave_b.png}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\caption{Graf til <++>}
+		\label{fig:c}
+		\includegraphics{oppgave_c.png}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\caption{<++>}
+		\label{fig:d}
+		\includegraphics{oppgave_d.png}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\caption{<++>}
+		\label{fig:e}
+		\includegraphics{oppgave_e.png}
+	\end{figure}
+		
+\end{document}

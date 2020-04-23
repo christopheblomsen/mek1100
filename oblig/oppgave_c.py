@@ -32,17 +32,19 @@ def rectangle(x1, x2, y1, y2):
     plt.plot([position1[0], position1[0]], [position1[1], position2[1]], "k")
 
 
-rectangle1_values = [35, 160, 70, 170]
-rectangle(rectangle1_values[0], rectangle1_values[1],
-          rectangle1_values[2], rectangle1_values[3])
+def draw_rectangles():
+    rectangle1_values = [35, 160, 70, 170]
+    rectangle(rectangle1_values[0], rectangle1_values[1],
+              rectangle1_values[2], rectangle1_values[3])
 
-rectangle2_values = [35, 85, 70, 100]
-rectangle(rectangle2_values[0], rectangle2_values[1],
-          rectangle2_values[2], rectangle2_values[3])
+    rectangle2_values = [35, 85, 70, 100]
+    rectangle(rectangle2_values[0], rectangle2_values[1],
+              rectangle2_values[2], rectangle2_values[3])
 
-rectangle3_values = [35, 50, 70, 60]
-rectangle(rectangle3_values[0], rectangle3_values[1],
-          rectangle3_values[2], rectangle3_values[3])
+    rectangle3_values = [35, 50, 70, 60]
+    rectangle(rectangle3_values[0], rectangle3_values[1],
+              rectangle3_values[2], rectangle3_values[3])
+
 
 plt.plot(xit, yit, "k*")
 num_skip = 5
@@ -75,14 +77,7 @@ plt.close()
 oppgave e
 Had to redraw a lot so first couple of lines are just that
 """
-rectangle(rectangle1_values[0], rectangle1_values[1],
-          rectangle1_values[2], rectangle1_values[3])
-rectangle2_values = [35, 85, 70, 100]
-rectangle(rectangle2_values[0], rectangle2_values[1],
-          rectangle2_values[2], rectangle2_values[3])
-rectangle3_values = [35, 50, 70, 60]
-rectangle(rectangle3_values[0], rectangle3_values[1],
-          rectangle3_values[2], rectangle3_values[3])
+draw_rectangles()
 plt.plot(xit, yit, "k*")
 num_skip = 5
 plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],
