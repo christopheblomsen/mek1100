@@ -22,7 +22,7 @@ def rectangle(x1, x2, y1, y2):
     # Bottom
     plt.plot([position1[0], position2[0]], [position1[1], position1[1]], "r")
 
-    # Right
+    # Righ
     plt.plot([position2[0], position2[0]], [position1[1], position2[1]], "g")
 
     # Top
@@ -46,57 +46,74 @@ def draw_rectangles():
               rectangle3_values[2], rectangle3_values[3])
 
 
-plt.plot(xit, yit, "k*")
-num_skip = 5
-plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],
-           u[::num_skip, ::num_skip], v[::num_skip, ::num_skip])
-
-plt.title("Oppgave c)")
-plt.xlabel("x")
-plt.ylabel("y")
-
-plt.savefig("oppgave_c.png")
-
-"""
-oppgave d
-"""
-
-dudx = np.gradient(u, 0.5, axis=1)
-dvdy = np.gradient(v, 0.5, axis=0)
-
-divergence = dudx + dvdy
-print(f"The divergence is {divergence}")
-
-plt.contourf(x, y, divergence)
-plt.colorbar()
-plt.title("Oppgave d)")
-plt.savefig("oppgave_d.png")
-plt.close()
-
-"""
-oppgave e
-Had to redraw a lot so first couple of lines are just that
-"""
-draw_rectangles()
-plt.plot(xit, yit, "k*")
-num_skip = 5
-plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],
-           u[::num_skip, ::num_skip], v[::num_skip, ::num_skip])
-plt.plot(xit, yit, "k*")
-"""
-New stuff
-"""
-
 dudy = np.gradient(u, 0.5, axis=0)
 dvdx = np.gradient(v, 0.5, axis=1)
 
 curl_v = dvdx - dudy
 
-curl_plot = plt.contourf(x, y, curl_v)
-plt.streamplot(x, y, u, v, color="orange")
-plt.colorbar()
 
-plt.title("Oppgave e)")
+def kurveintegral(x1, y1, x2, y2):
+    side1 = 0
+    side2 = 0
+    side3 = 0
+    side4 = 0
+    dx = 0.5
+    dy = 0.5
 
-plt.savefig("oppgave_e.png")
-plt.show()
+    for k in u[y1, x1:x2+1]:
+        side1 += k*dx
+
+    for k in v[x2, y1:y2+1]:
+        side2 += k*dy
+
+    for k in u[y2, x1:x2+1]:
+        side3 -= k*dx
+
+    for k in v[x1, y1:y2+1]:
+        side4 -= k*dy
+
+    sumation = side1 + side2 + side3 + side4
+    return sumation
+
+
+def flateintegral(x1, y1, x2, y2):
+    integral = 0
+    dx = 0.5
+    dy = 0.5
+    for i in range(x1, x2+1):
+        for j in range(y1, y2+1):
+            integral += curl_v[j, i]*dx*dy
+
+    return integral
+
+
+print(kurveintegral(34, 159, 69, 169), kurveintegral(34, 84, 69, 99),
+      kurveintegral(34, 49, 69, 59))
+print(flateintegral(34, 159, 69, 169), flateintegral(34, 84, 69, 99),
+      flateintegral(34, 49, 69, 59))
+
+
+def gaus(x1, y1, x2, y2):
+    side1 = 0
+    side2 = 0
+    side3 = 0
+    side4 = 0
+    dx = 0.5
+    dy = 0.5
+    dz = 1
+
+    for k in v[y1, x1:x2+1]:
+        side1 -= k*dx*dz
+
+    for k in u[x2, y1:y2+1]:
+        side2 += k*dy*dz
+
+    for k in v[y2, x1:x2+1]:
+        side3 += k*dx*dz
+
+    for k in u[x1, y1:y2+1]:
+        side4 -= k*dy*dz
+
+    sumation = side1 + side2 + side3 + side4
+    return sumation
+
