@@ -32,6 +32,11 @@ def rectangle(x1, x2, y1, y2):
     plt.plot([position1[0], position1[0]], [position1[1], position2[1]], "k")
 
 
+"""
+f
+"""
+
+
 def draw_rectangles():
     rectangle1_values = [34, 159, 69, 169]
     rectangle(rectangle1_values[0], rectangle1_values[1],
@@ -52,7 +57,7 @@ dvdx = np.gradient(v, 0.5, axis=1)
 curl_v = dvdx - dudy
 
 
-def kurveintegral(x1, y1, x2, y2):
+def line_integral(x1, y1, x2, y2):
     side1 = 0
     side2 = 0
     side3 = 0
@@ -76,7 +81,7 @@ def kurveintegral(x1, y1, x2, y2):
     return sumation
 
 
-def flateintegral(x1, y1, x2, y2):
+def surface_integral(x1, y1, x2, y2):
     integral = 0
     dx = 0.5
     dy = 0.5
@@ -87,10 +92,14 @@ def flateintegral(x1, y1, x2, y2):
     return integral
 
 
-print(kurveintegral(34, 159, 69, 169), kurveintegral(34, 84, 69, 99),
-      kurveintegral(34, 49, 69, 59))
-print(flateintegral(34, 159, 69, 169), flateintegral(34, 84, 69, 99),
-      flateintegral(34, 49, 69, 59))
+print(line_integral(34, 159, 69, 169), line_integral(34, 84, 69, 99),
+      line_integral(34, 49, 69, 59))
+print(surface_integral(34, 159, 69, 169), surface_integral(34, 84, 69, 99),
+      surface_integral(34, 49, 69, 59))
+
+"""
+g
+"""
 
 
 def gaus(x1, y1, x2, y2):
@@ -116,4 +125,3 @@ def gaus(x1, y1, x2, y2):
 
     sumation = side1 + side2 + side3 + side4
     return sumation
-

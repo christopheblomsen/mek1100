@@ -238,16 +238,80 @@ plt.title("Oppgave e)")
 plt.savefig("oppgave_e.png")
 plt.show()
 	\end{lstlisting}
+	Konturplottet av denne virvlingskomponenten kan finnes \hyperref[fig:e]{her}. Observerer at strømningen skaper sirkulasjon mellom gass- og væskefasen, spesielt rundt det miderste rektangelet. Ser også at strømningen trekkes til veggen på grunn av friksjon. 
 %oppgave f
 	\addcontentsline{toc}{section}{f)}
 	\section*{f)}\label{ass:f}
-	Lorem ipsum
+\begin{lstlisting}
+def line_integral(x1, y1, x2, y2):
+    side1 = 0
+    side2 = 0
+    side3 = 0
+    side4 = 0
+    dx = 0.5
+    dy = 0.5
 
+    for k in u[y1, x1:x2+1]:
+        side1 += k*dx
+
+    for k in v[x2, y1:y2+1]:
+        side2 += k*dy
+
+    for k in u[y2, x1:x2+1]:
+        side3 -= k*dx
+
+    for k in v[x1, y1:y2+1]:
+        side4 -= k*dy
+
+    sumation = side1 + side2 + side3 + side4
+    return sumation
+
+
+def surface_integral(x1, y1, x2, y2):
+    integral = 0
+    dx = 0.5
+    dy = 0.5
+    for i in range(x1, x2+1):
+        for j in range(y1, y2+1):
+            integral += curl_v[j, i]*dx*dy
+
+    return integral
+
+
+print(line_integral(34, 159, 69, 169), line_integral(34, 84, 69, 99),
+      line_integral(34, 49, 69, 59))
+print(surface_integral(34, 159, 69, 169), surface_integral(34, 84, 69, 99),
+      surface_integral(34, 49, 69, 59))
+\end{lstlisting}
 %oppgave g
 	\addcontentsline{toc}{section}{g)}
 	\section*{g)}\label{ass:g}
-	Lorem ipsum
+\begin{lstlisting}
+def gaus(x1, y1, x2, y2):
+    side1 = 0
+    side2 = 0
+    side3 = 0
+    side4 = 0
+    dx = 0.5
+    dy = 0.5
+    dz = 1
 
+    for k in v[y1, x1:x2+1]:
+        side1 -= k*dx*dz
+
+    for k in u[x2, y1:y2+1]:
+        side2 += k*dy*dz
+
+    for k in v[y2, x1:x2+1]:
+        side3 += k*dx*dz
+
+    for k in u[x1, y1:y2+1]:
+        side4 -= k*dy*dz
+
+    sumation = side1 + side2 + side3 + side4
+    return sumation
+
+\end{lstlisting}
 %plots
 	\newpage
 	\begin{figure}[h!]
