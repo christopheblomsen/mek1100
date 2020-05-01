@@ -222,12 +222,17 @@ plt.title("Oppgave d)")
 plt.savefig("oppgave_d.png")
 	\end{lstlisting}
 	Denne kodesnutten produserer da følgende \hyperref[fig:d]{plot}.
-	Divergensen til $\mathbf{v}$ er ikke den samme som divergensen til $u \mathbf{i} + v \mathbf{j}$.
-	Dette fordi divergensen til $\mathbf{v}$ er
+	Siden gassen og væska er inkompressible så betyr det at $\nabla \cdot \mathbf{v} = 0$.
+	Dette medfører
 	\begin{align*}
-		\nabla \cdot \mathbf{v} = \frac{\partial u}{\partial \dd{x}} 	
+		\nabla \cdot \mathbf{v} &= \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0\\
+		\frac{\partial w}{\partial z} &= - \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} \right) 
 	\end{align*}
-	
+	Da vil hastighetskompenten \[
+	w = \int \left( \frac{\partial v}{\partial y} + \frac{\partial u}{\partial x} \right) \dd{z}
+
+	\] 
+	Dette integralet kan ikke være være $0$ derfor må divergensen til $\mathbf{v}$ være forskjellig fra divergensen til $u \mathbf{i} + v \mathbf{j}$ 
 %oppgave e
 	\addcontentsline{toc}{section}{e)}
 	\section*{e)}\label{ass:e}
@@ -247,7 +252,9 @@ plt.title("Oppgave e)")
 plt.savefig("oppgave_e.png")
 plt.show()
 	\end{lstlisting}
-	Konturplottet av denne virvlingskomponenten kan finnes \hyperref[fig:e]{her}. Observerer at strømningen skaper sirkulasjon mellom gass- og væskefasen, spesielt rundt det miderste rektangelet. Ser også at strømningen trekkes til veggen på grunn av friksjon. 
+	Konturplottet av denne virvlingskomponenten kan finnes \hyperref[fig:e]{her}. 
+	Observerer at strømningen skaper sirkulasjon mellom gass- og væskefasen, spesielt rundt det miderste rektangelet. 
+	Ser også at strømningen trekkes til veggen på grunn av friksjoni, og at det er større friksjon i væskefasen. 
 %oppgave f
 	\addcontentsline{toc}{section}{f)}
 	\section*{f)}\label{ass:f}
@@ -273,7 +280,7 @@ def line_integral(x1, y1, x2, y2):
         side4 -= k*dy
 
     sumation = side1 + side2 + side3 + side4
-    return sumation
+    return sumation, side1, side2, side3, side4
 
 
 def surface_integral(x1, y1, x2, y2):
@@ -287,16 +294,30 @@ def surface_integral(x1, y1, x2, y2):
     return integral
 
 
-print(line_integral(34, 159, 69, 169), line_integral(34, 84, 69, 99),
-      line_integral(34, 49, 69, 59))
-print(surface_integral(34, 159, 69, 169), surface_integral(34, 84, 69, 99),
-      surface_integral(34, 49, 69, 59))
+line_integral_1, side1_1, side2_1, side3_1, side4_1 = line_integral(34, 159, 69, 169)
+line_integral_2, side1_2, side2_2, side3_2, side4_2 = line_integral(34, 84, 69, 99)
+line_integral_3, side1_3, side2_3, side3_3, side4_3 = line_integral(34, 49, 69, 59)
+
+integral_1 = surface_integral(34, 159, 69, 169)
+integral_2 = surface_integral(34, 84, 69, 99)
+integral_3 = surface_integral(34, 49, 69, 59)
+
+print(f"Sirkulasjonen til rektangel 1 ble {line_integral_1}")
+print(f"Sirkulasjonen til rektangel 2 ble {line_integral_2}")
+print(f"Sirkulasjonen til rektangel 3 ble {line_integral_3}")
+
+print(f"""Rektangel 1 har side verdier: Side 1={side1_1},
+      Side 2={side2_1}, Side 3={side3_1}, Side 4={side4_1}""")
+print(f"""Rektangel 2 har side verdier: Side 1={side1_2},
+      Side 2={side2_2}, Side 3={side3_2}, Side 4={side4_2}""")
+print(f"""Rektangel 3 har side verdier: Side 1={side1_3},
+      Side 2={side2_3}, Side 3={side3_3}, Side 4={side4_3}""")
 \end{lstlisting}
 %oppgave g
 	\addcontentsline{toc}{section}{g)}
 	\section*{g)}\label{ass:g}
 \begin{lstlisting}
-def gaus(x1, y1, x2, y2):
+def gauss(x1, y1, x2, y2):
     side1 = 0
     side2 = 0
     side3 = 0
