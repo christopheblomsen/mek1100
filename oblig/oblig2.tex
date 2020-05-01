@@ -4,9 +4,8 @@
 	\usepackage[norsk]{babel}
 	\usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry,enumerate,commath,tcolorbox}
 	% colors in text
-	\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+	\usepackage[usenames,dvipsnames,svgnames,table, colorlinks]{xcolor, hyperref}
 	% Hyper refs
-	\usepackage[colorlinks]{hyperref}
 	%inkspace
 	\usepackage{import}
 	\usepackage{xifthen}
@@ -16,9 +15,9 @@
 %Colour scheme for hyperlinks
 	\hypersetup{%
 		colorlinks,
-		citecolor=Blue,
-		linkcolor=Blue,
-		urlcolor=Blue}
+		citecolor=blue,
+		linkcolor=blue,
+		urlcolor=blue}
 
 % Document formatting
 	\setlength{\parindent}{0mm}
@@ -178,15 +177,15 @@ def rectangle(x1, x2, y1, y2):
 
 
 def draw_rectangles():
-    rectangle1_values = [35, 160, 70, 170]
+    rectangle1_values = [34, 159, 69, 169]
     rectangle(rectangle1_values[0], rectangle1_values[1],
               rectangle1_values[2], rectangle1_values[3])
 
-    rectangle2_values = [35, 85, 70, 100]
+    rectangle2_values = [34, 84, 69, 100]
     rectangle(rectangle2_values[0], rectangle2_values[1],
               rectangle2_values[2], rectangle2_values[3])
 
-    rectangle3_values = [35, 50, 70, 60]
+    rectangle3_values = [34, 49, 69, 59]
     rectangle(rectangle3_values[0], rectangle3_values[1],
               rectangle3_values[2], rectangle3_values[3])
 
@@ -206,10 +205,10 @@ plt.savefig("oppgave_c.png")
 %oppgave d
 	\addcontentsline{toc}{section}{c)}
 	\section*{c)}\label{ass:d}
-	I numpy pakken så finnes det flere finne funksjoner, i denne oppgaven så kommer jeg til å bruke numpy.gradient funksjonen. Det den gjør er å regner ut gradienten til arrays. Hvis man også bruker keyword argumentet "axis" så kan man velge hvilken av komponente du vil ha. I kodesnutten under er da dette oppnådd med at vi i dudx kun trekker ut x komponente.
+	I numpy pakken til python så finnes det flere finne funksjoner, i denne oppgaven så blir numpy.gradient funksjonen brukt. Det den gjør er å regner ut gradienten til arrays. Hvis man også bruker keyword argumentet "axis" så kan man velge hvilken av komponente du vil ha. I kodesnutten under er da dette oppnådd med at vi i $dudx$ kun trekker ut $x$-komponente fra gradienten til $u$ tilsvarende for  $dvdy$.
 	\begin{lstlisting}[caption=Oppgave d]
-dudx = np.gradient(u, axis=0)
-dvdy = np.gradient(v, axis=1)
+dudx = np.gradient(u, 0.5, axis=0)
+dvdy = np.gradient(v, 0.5, axis=1)
 
 divergence = dudx + dvdy
 print(f"The divergence is {divergence}")
@@ -219,12 +218,26 @@ plt.colorbar()
 plt.title("Oppgave d)")
 plt.savefig("oppgave_d.png")
 	\end{lstlisting}
-
+	Denne kodesnutten produserer da følgende \hyperref[fig:d]{plot}
 %oppgave e
 	\addcontentsline{toc}{section}{e)}
 	\section*{e)}\label{ass:e}
-	Lorem ipsum
+	np.gradient blir brukt på samme måte i denne oppgaven for å finne virvlingen.
+	\begin{lstlisting}
+dudy = np.gradient(u, 0.5, axis=0)
+dvdx = np.gradient(v, 0.5, axis=1)
 
+curl_v = dvdx - dudy
+
+curl_plot = plt.contourf(x, y, curl_v)
+plt.streamplot(x, y, u, v, color="orange")
+plt.colorbar()
+
+plt.title("Oppgave e)")
+
+plt.savefig("oppgave_e.png")
+plt.show()
+	\end{lstlisting}
 %oppgave f
 	\addcontentsline{toc}{section}{f)}
 	\section*{f)}\label{ass:f}

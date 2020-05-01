@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.8)  23 APR 2020 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.4.8)  26 APR 2020 06:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -337,20 +337,20 @@ Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \tcb@record@out=\write5
 )
 
-./oblig2.tex:9: LaTeX Error: Option clash for package xcolor.
+./oblig2.tex:10: LaTeX Error: Option clash for package xcolor.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.9 	\usepackage
-                [colorlinks]{hyperref}
+l.10 	\usepackage
+                 {import}
 The package xcolor has already been loaded with options:
   []
 There has now been an attempt to load it with options
-  [usenames,dvipsnames,svgnames,table]
+  [usenames,dvipsnames,svgnames,table, colorlinks]
 Adding the global options:
-  ,usenames,dvipsnames,svgnames,table
+  ,usenames,dvipsnames,svgnames,table, colorlinks
 to your \documentclass declaration may fix this.
 Try typing  <return>  to proceed.
 
@@ -406,6 +406,54 @@ Now handling font encoding PD1 ...
  (/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
+
+/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty:4414: Package keyval Error: usenames undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4414 \ProcessKeyvalOptions{Hyp}
+                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty:4414: Package keyval Error: dvipsnames undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4414 \ProcessKeyvalOptions{Hyp}
+                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty:4414: Package keyval Error: svgnames undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4414 \ProcessKeyvalOptions{Hyp}
+                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty:4414: Package keyval Error: table undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4414 \ProcessKeyvalOptions{Hyp}
+                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 Package hyperref Info: Option `colorlinks' set `true' on input line 4414.
 Package hyperref Info: Hyper figures OFF on input line 4540.
 Package hyperref Info: Link nesting OFF on input line 4545.
@@ -415,7 +463,7 @@ Package hyperref Info: Backreferencing OFF on input line 4560.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4793.
 \c@Hy@tempcnt=\count125
- (/usr/share/texmf-dist/tex/latex/url/url.sty
+(/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -483,7 +531,7 @@ File: pppdftex.def 2019/09/21 v0.5n Pdfpages driver for pdfTeX (AM)
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/transparent.sty
 Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 21.
+Package hyperref Info: Option `colorlinks' set `true' on input line 20.
  (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
@@ -666,26 +714,26 @@ File: lstlang1.sty 2019/09/10 1.8c listings language file
 ) (./oblig2.aux)
 \openout1 = `oblig2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 75.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    ... okay on input line 75.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count144
@@ -747,7 +795,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring ON on input line 76.
+Package hyperref Info: Link coloring ON on input line 75.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -756,14 +804,14 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count150
 LaTeX Info: Redefining \Ref on input line 520.
 )
-LaTeX Info: Redefining \ref on input line 76.
-LaTeX Info: Redefining \pageref on input line 76.
-LaTeX Info: Redefining \nameref on input line 76.
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
  (./oblig2.out) (./oblig2.out)
 \@outlinefile=\write6
 \openout6 = `oblig2.out'.
 
-LaTeX Info: Redefining \Ref on input line 76.
+LaTeX Info: Redefining \Ref on input line 75.
  (/usr/share/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
  (/usr/share/texmf-dist/tex/latex/graphics/lscape.sty
@@ -772,390 +820,117 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count151
-LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-./oblig2.tex:80: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80 	\tableofcontents
-                      
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-(./oblig2.toc
-
-./oblig2.toc:2: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 \contentsline {section}{a)}{1}{section*.3}
-                                              %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:3: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 \contentsline {section}{b)}{1}{lstnumber.1.21}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:4: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \contentsline {section}{c)}{2}{lstnumber.2.14}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:5: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 \contentsline {section}{c)}{3}{lstnumber.3.41}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:6: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \contentsline {section}{e)}{3}{lstnumber.4.10}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:7: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.7 \contentsline {section}{f)}{3}{section*.8}
-                                              %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.toc:8: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.8 \contentsline {section}{g)}{3}{section*.9}
-                                              %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+) (./oblig2.toc)
 \tf@toc=\write7
 \openout7 = `oblig2.toc'.
 
- (./oblig2.lof
-
-./oblig2.lof:2: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 ...rline {1}{\ignorespaces <++>}}{4}{figure.1}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lof:3: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 ...{\ignorespaces Graf til <++>}}{5}{figure.2}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lof:4: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 ...rline {3}{\ignorespaces <++>}}{6}{figure.3}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lof:5: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.5 ...rline {4}{\ignorespaces <++>}}{7}{figure.4}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+ (./oblig2.lof)
 \tf@lof=\write8
 \openout8 = `oblig2.lof'.
 
- (./oblig2.lol
-
-./oblig2.lol:1: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 ...erline {1}Kode oppgave a)}{1}{lstlisting.1}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lol:2: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 ...berline {2}Kode oppgave b}{2}{lstlisting.2}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lol:3: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 ...ine {3}Kode til oppgave c}{2}{lstlisting.3}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./oblig2.lol:4: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 ...{\numberline {4}Oppgave d}{3}{lstlisting.4}
-                                                  %
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+ (./oblig2.lol)
 \tf@lol=\write9
 \openout9 = `oblig2.lol'.
 
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 90.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 89.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--135
+Underfull \hbox (badness 10000) in paragraph at lines 114--134
 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.141 	\begin{lstlisting}[caption=Kode oppgave b]
-                                                  [1]
-
-./oblig2.tex:157: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.157 ...oduserer følgende \hyperref[fig:b]{plot}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[2]
-
-./oblig2.tex:205: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.205 ...roduserer følgede \hyperref[fig:c]{plot}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 215.
-(/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+l.140 	\begin{lstlisting}[caption=Kode oppgave b]
+                                                  [1] [2]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 214.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 215.
- [3]
-
-./oblig2.tex:242: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.242 ...ion{Graf til oppgave \hyperref[ass:b]{b}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<oppgave_b.png, id=178, 462.528pt x 346.896pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 214.
+ [3] [4]
+<oppgave_b.png, id=201, 462.528pt x 346.896pt>
 File: oppgave_b.png Graphic file (type png)
 <use oppgave_b.png>
-Package pdftex.def Info: oppgave_b.png  used on input line 244.
+Package pdftex.def Info: oppgave_b.png  used on input line 257.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 244--245
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 257--258
  [][] 
  []
 
-
-./oblig2.tex:248: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.248 ...ion{Graf til oppgave \hyperref[ass:c]{c}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<oppgave_c.png, id=181, 462.528pt x 346.896pt>
+<oppgave_c.png, id=204, 462.528pt x 346.896pt>
 File: oppgave_c.png Graphic file (type png)
 <use oppgave_c.png>
-Package pdftex.def Info: oppgave_c.png  used on input line 250.
+Package pdftex.def Info: oppgave_c.png  used on input line 263.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 250--251
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 263--264
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-./oblig2.tex:254: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 ...ion{Graf til oppgave \hyperref[ass:d]{d}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<oppgave_d.png, id=183, 462.528pt x 346.896pt>
+<oppgave_d.png, id=206, 462.528pt x 346.896pt>
 File: oppgave_d.png Graphic file (type png)
 <use oppgave_d.png>
-Package pdftex.def Info: oppgave_d.png  used on input line 256.
+Package pdftex.def Info: oppgave_d.png  used on input line 269.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 256--257
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 269--270
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-./oblig2.tex:260: Package xcolor Error: Undefined color `Blue'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.260 ...ion{Graf til oppgave \hyperref[ass:e]{e}}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-<oppgave_e.png, id=185, 462.528pt x 346.896pt>
+<oppgave_e.png, id=208, 462.528pt x 346.896pt>
 File: oppgave_e.png Graphic file (type png)
 <use oppgave_e.png>
-Package pdftex.def Info: oppgave_e.png  used on input line 262.
+Package pdftex.def Info: oppgave_e.png  used on input line 275.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 262--263
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 275--276
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 <./oppgave_b.png>] [5 <./oppgave_c.png>] [6 <./oppgave_d.png>] [7 <./oppgave_e.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+[5 <./oppgave_b.png>] [6 <./oppgave_c.png>] [7 <./oppgave_d.png>] [8 <./oppgave_e.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
  (./oblig2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
 Package rerunfilecheck Info: File `oblig2.out' has not changed.
-(rerunfilecheck)             Checksum: 56F84DCF09173D903DCD95F3DFD34261;289.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: AE90461F1730B11D9F50321B57C1D5B7;294.
  ) 
 Here is how much of TeX's memory you used:
- 20163 strings out of 492167
- 352291 string characters out of 6131559
- 807738 words of memory out of 5000000
- 24046 multiletter control sequences out of 15000+600000
+ 20187 strings out of 492167
+ 352617 string characters out of 6131559
+ 807772 words of memory out of 5000000
+ 24055 multiletter control sequences out of 15000+600000
  11872 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,7n,75p,865b,1890s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,7n,75p,887b,1890s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb>
-Output written on oblig2.pdf (8 pages, 296249 bytes).
+Output written on oblig2.pdf (9 pages, 356287 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 237 compressed objects within 3 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 127 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 
