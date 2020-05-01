@@ -46,6 +46,7 @@ def draw_rectangles():
               rectangle3_values[2], rectangle3_values[3])
 
 
+draw_rectangles()
 plt.plot(xit, yit, "k*")
 num_skip = 5
 plt.quiver(x[::num_skip, ::num_skip], y[::num_skip, ::num_skip],

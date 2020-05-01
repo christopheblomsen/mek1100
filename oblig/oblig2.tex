@@ -203,9 +203,12 @@ plt.savefig("oppgave_c.png")
 	\end{lstlisting}
 	Denne kodesnutten produserer følgede \hyperref[fig:c]{plot}
 %oppgave d
-	\addcontentsline{toc}{section}{c)}
-	\section*{c)}\label{ass:d}
-	I numpy pakken til python så finnes det flere finne funksjoner, i denne oppgaven så blir numpy.gradient funksjonen brukt. Det den gjør er å regner ut gradienten til arrays. Hvis man også bruker keyword argumentet "axis" så kan man velge hvilken av komponente du vil ha. I kodesnutten under er da dette oppnådd med at vi i $dudx$ kun trekker ut $x$-komponente fra gradienten til $u$ tilsvarende for  $dvdy$.
+	\addcontentsline{toc}{section}{d)}
+	\section*{d)}\label{ass:d}
+	I numpy pakken til python så finnes det flere finne funksjoner, i denne oppgaven så blir numpy.gradient funksjonen brukt. 
+	Det den gjør er å regne ut gradienten til arrays. 
+	Hvis man også bruker keyword argumentet axis så kan man velge hvilken av komponente du vil ha. 
+	I kodesnutten under er da dette oppnådd med at vi i $dudx$ kun trekker ut $x$-komponente fra gradienten til $u$ tilsvarende for  $dvdy$.
 	\begin{lstlisting}[caption=Oppgave d]
 dudx = np.gradient(u, 0.5, axis=0)
 dvdy = np.gradient(v, 0.5, axis=1)
@@ -218,7 +221,13 @@ plt.colorbar()
 plt.title("Oppgave d)")
 plt.savefig("oppgave_d.png")
 	\end{lstlisting}
-	Denne kodesnutten produserer da følgende \hyperref[fig:d]{plot}
+	Denne kodesnutten produserer da følgende \hyperref[fig:d]{plot}.
+	Divergensen til $\mathbf{v}$ er ikke den samme som divergensen til $u \mathbf{i} + v \mathbf{j}$.
+	Dette fordi divergensen til $\mathbf{v}$ er
+	\begin{align*}
+		\nabla \cdot \mathbf{v} = \frac{\partial u}{\partial \dd{x}} 	
+	\end{align*}
+	
 %oppgave e
 	\addcontentsline{toc}{section}{e)}
 	\section*{e)}\label{ass:e}
