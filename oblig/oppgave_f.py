@@ -98,7 +98,7 @@ line_integral_3, side1_3, side2_3, side3_3, side4_3 = line_integral(34, 49, 69, 
 
 integral_1 = surface_integral(34, 159, 69, 169)
 integral_2 = surface_integral(34, 84, 69, 99)
-integral_3 = surface_integral(34, 49, 69, 59)
+integral_3 = surface_integral(34, 49, 69, 159)
 
 print(f"Sirkulasjonen til rektangel 1 ble {line_integral_1}")
 print(f"Sirkulasjonen til rektangel 2 ble {line_integral_2}")
@@ -111,7 +111,6 @@ print(f"""Rektangel 2 har side verdier: Side 1={side1_2},
 print(f"""Rektangel 3 har side verdier: Side 1={side1_3},
       Side 2={side2_3}, Side 3={side3_3}, Side 4={side4_3}""")
 """
-
 Sirkulasjonen til rektangel 1 ble 1796.013421486005
 Sirkulasjonen til rektangel 2 ble -60206.56400779366
 Sirkulasjonen til rektangel 3 ble -143.18708039114364
@@ -134,19 +133,46 @@ def gauss(x1, y1, x2, y2):
     side4 = 0
     dx = 0.5
     dy = 0.5
-    dz = 1
 
     for k in v[y1, x1:x2+1]:
-        side1 -= k*dx*dz
+        side1 -= k*dx
 
-    for k in u[x2, y1:y2+1]:
-        side2 += k*dy*dz
+    for k in u[y1:y2+1, x2]:
+        side2 += k*dy
 
     for k in v[y2, x1:x2+1]:
-        side3 += k*dx*dz
+        side3 += k*dx
 
-    for k in u[x1, y1:y2+1]:
-        side4 -= k*dy*dz
+    for k in u[y1:y2+1, x1]:
+        side4 -= k*dy
 
     sumation = side1 + side2 + side3 + side4
-    return sumation
+    return sumation, side1, side2, side3, side4
+
+
+gauss_1, gauss_side1_1, gauss_side2_1, gauss_side3_1, gauss_side4_1 = gauss(34, 159, 69, 169)
+gauss_2, gauss_side1_2, gauss_side2_2, gauss_side3_2, gauss_side4_2 = gauss(34, 84, 69, 99)
+gauss_3, gauss_side1_3, gauss_side2_3, gauss_side3_3, gauss_side4_3 = gauss(34, 49, 69, 59)
+
+print(f"Fluksen til kurveintegral 1 ble {gauss_1}")
+print(f"Fluksen til kurveintegral 2 ble {gauss_2}")
+print(f"Fluksen til kurveintegral 3 ble {gauss_3}")
+
+print(f"""Rektangel 1 har side verdier: Side 1={gauss_side1_1},
+      Side 2={gauss_side2_1}, Side 3={gauss_side3_1}, Side 4={gauss_side4_1}""")
+print(f"""Rektangel 2 har side verdier: Side 1={gauss_side1_2},
+      Side 2={gauss_side2_2}, Side 3={gauss_side3_2}, Side 4={gauss_side4_2}""")
+print(f"""Rektangel 3 har side verdier: Side 1={gauss_side1_3},
+      Side 2={gauss_side2_3}, Side 3={gauss_side3_3}, Side 4={gauss_side4_3}""")
+
+"""
+Fluksen til kurveintegral 1 ble 104.8526049082102
+Fluksen til kurveintegral 2 ble -6476.93918209796
+Fluksen til kurveintegral 3 ble -124.56866604496236
+Rektangel 1 har side verdier: Side 1=1556.8679439413959,
+      Side 2=21664.567474322168, Side 3=-2059.6771847938708, Side 4=-21056.905628561482
+Rektangel 2 har side verdier: Side 1=-5187.564033067891,
+      Side 2=14782.532896182345, Side 3=-4074.0522144394345, Side 4=-11997.85583077298
+Rektangel 3 har side verdier: Side 1=-195.5701479258336,
+      Side 2=1536.8217966413547, Side 3=284.9436464350764, Side 4=-1750.7639611955597
+"""
