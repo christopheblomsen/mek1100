@@ -48,4 +48,5 @@ dfdyi = sp.lambdify((u, v), gradf[1])(ui, vi)
 plt.contourf(x, y, fj)
 plt.quiver(x[::10], y[::10], dfdxi[::10], dfdyi[::10], scale=10)
 
+print(e)
 plt.show()
