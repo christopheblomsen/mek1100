@@ -1,0 +1,207 @@
+% Standard stuff
+	\documentclass[a4paper,10pt,norsk]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[norsk]{babel}
+	\usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry,enumerate,commath,physics, amssymb}
+	% colors in text
+	\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+	% Hyper refs
+	\usepackage[colorlinks]{hyperref}
+	%inkspace
+	\usepackage{import}
+	\usepackage{xifthen}
+	\usepackage{pdfpages}
+	\usepackage{transparent}
+
+%Colour scheme for hyperlinks
+	\hypersetup{%
+		colorlinks,
+		citecolor=Blue,
+		linkcolor=Blue,
+		urlcolor=Blue}
+
+% Document formatting
+	\setlength{\parindent}{0mm}
+	\setlength{\parskip}{1.5mm}
+
+%Color scheme for listings
+	\usepackage{textcomp}
+	\definecolor{listinggray}{gray}{0.9}
+	\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+
+%Listings configuration
+	\usepackage{listings}
+	\lstset{
+		backgroundcolor=\color{lbcolor},
+		tabsize=4,
+		rulecolor=,
+		language=python,
+		basicstyle=\scriptsize,
+		upquote=true,
+		aboveskip={1.5\baselineskip},
+		columns=fixed,
+		numbers=left,
+		showstringspaces=false,
+		extendedchars=true,
+		breaklines=true,
+		prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+		frame=single,
+		showtabs=false,
+		showspaces=false,
+		showstringspaces=false,
+		identifierstyle=\ttfamily,
+		keywordstyle=\color[rgb]{0,0,1},
+		commentstyle=\color[rgb]{0.133,0.545,0.133},
+		stringstyle=\color[rgb]{0.627,0.126,0.941}
+	}
+
+%new commands
+	\renewcommand{\lstlistingname}{Code}
+	\renewcommand{\lstlistlistingname}{\lstlistingname}
+	\newcommand{\dd}[1]{\mathrm{d}#1}
+	\def\doubleunderline#1{\underline{\underline{#1}}}
+	\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+
+	\newcommand{\incfig}[2][1]{%
+		\def\svgwidth{#1\columnwidth}
+		\import{./figures/}{#2.pdf_tex}
+	}
+	\pdfsuppresswarningpagegroup = 1
+
+\begin{document}
+\section*{1}
+	\begin{enumerate}[i]
+		\item  $\vec{u}  = x \uvec{i} + y \uvec{j} + z \uvec{k}$\\
+			Ser først på divergensen
+			\begin{align*}
+				\nabla \cdot \vec{u} &= \frac{\partial }{\partial x} x + \frac{\partial }{\partial y} y + \frac{\partial }{\partial z} z\\
+				\nabla \cdot \vec{u} &= 1 + 1 +1\\
+				\nabla \cdot \vec{u} &= 3
+			\end{align*}
+			Ser så på virvlingen
+			\begin{align*}
+				\nabla \times \vec{u}  &= 
+				\begin{vmatrix}
+					\uvec{i} & \uvec{j} & \uvec{k} \\
+					\frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\
+					x & y & z
+				\end{vmatrix}\\
+				\nabla \times \vec{u}  &= \left( \frac{\partial }{\partial y} z - \frac{\partial }{\partial z} y \right) \uvec{i} + \left( \frac{\partial }{\partial z} x - \frac{\partial }{\partial x} z \right) \uvec{j} + \left( \frac{\partial }{\partial x} y - \frac{\partial }{\partial y} x \right) \uvec{k}\\
+				\nabla \times \vec{u}  &= \vec{0} 
+			\end{align*}
+		\item $\vec{u} = r \cos(\theta) \uvec{i}_r + r \sin(\theta) \uvec{i}_{\theta} + z \uvec{k}$
+			Ser først på divergensen
+			\begin{align*}
+				\nabla \cdot \vec{u}  &= \frac{1}{r} \left( \frac{\partial }{\partial r} \left( r \left( r \cos(\theta)  \right)  \right) + \frac{\partial }{\partial \theta} \left( r \sin(\theta)  \right)  \right) + \frac{\partial }{\partial z} z\\
+				\nabla \cdot \vec{u}  &= \frac{1}{r} \left( \cos(\theta) \frac{\partial }{\partial r} r^2 + r \frac{\partial }{\partial \theta} \sin(\theta)  \right) + 1\\
+				\nabla \cdot \vec{u}  &= \frac{1}{r} \left( 2r \cos(\theta)  + r \cos(\theta)  \right) + 1\\
+				\nabla \cdot \vec{u}  &= 2 \cos(\theta)  + \cos(\theta)  +1\\
+				\nabla \cdot \vec{u}  &= 3 \cos(\theta)  +1
+			\end{align*}
+			Ser så på virvlingen
+			\begin{align*}
+				\nabla \times \vec{u} &= 0 \uvec{i}_r + 0 \uvec{i}_{\theta} +
+					 \frac{1}{r} \left( \frac{\partial }{\partial r} \left( r \left( r \sin(\theta)  \right)  \right)  - \frac{\partial }{\partial \theta} \left( r \cos(\theta)  \right)  \right) \uvec{k} \\
+				\nabla \times \vec{u} &=  \frac{1}{r} \left( \sin(\theta) \frac{\partial }{\partial r} \left( r^2 \right) - r \frac{\partial }{\partial \theta} \left( \cos(\theta)  \right)   \right) \uvec{k}\\
+				\nabla \times \vec{u} &= \frac{1}{r} \left( 2r \sin(\theta)  + r \sin(\theta)  \right) \uvec{k}\\
+				\nabla \times \vec{u}  &= \left( 2 \sin(\theta)  + \sin(\theta)  \right) \uvec{k}\\
+				\nabla \times \vec{u} &= 3 \sin(\theta) \uvec{k}
+			\end{align*}
+			\newpage
+		\item $\vec{u}  = \uvec{i}_r + \uvec{i}$ \\
+			Konverterer først over til rene sylinder koordinater \[
+			\boxed{\uvec{i} = \cos(\theta)  \uvec{i}_r - \sin(\theta)  \uvec{i}_{\theta} }
+			\] 
+			\begin{align*}
+				\vec{u} &= \uvec{i}_r + \cos(\theta) \uvec{i}_ r - \sin(\theta)  \uvec{i}_{\theta}\\
+				\vec{u} &= \left( 1 + \cos(\theta)  \right) \uvec{i}_r - \sin(\theta) \uvec{i}_{\theta}
+			\end{align*}
+			Ser først på divergensen
+			\begin{align*}
+				\nabla \cdot \vec{u}  &= \frac{1}{r} \left( \frac{\partial }{\partial r} \left( r \left( 1 + \cos(\theta)  \right)  \right)  \frac{\partial }{\partial \theta} \left( - \sin(\theta)  \right)  \right) \\
+				\nabla \cdot \vec{u}  &= \frac{1}{r} \left( 1 + \cos(\theta)  - \cos(\theta)  \right) \\
+				\nabla \cdot \vec{u}  &= \frac{1}{r}
+			\end{align*}
+			Ser så på virvlingen
+			\begin{align*}
+				\nabla \times \vec{u} &= 0 \uvec{i}_r + 0 \uvec{i}_{\theta} + \frac{1}{r} \left( \frac{\partial }{\partial r}  \left( r \left( - \sin(\theta)  \right)  \right)  - \frac{\partial }{\partial \theta} \left( 1 + \cos(\theta)  \right)  \right) \uvec{k}\\
+				\nabla \times \vec{u} &= \frac{1}{r} \left( - \sin(\theta) + \sin(\theta)  \right) \uvec{k}\\
+				\nabla \times \vec{u} &= \vec{0} 
+			\end{align*}
+	\end{enumerate}
+
+\section*{2}
+	\subsection*{a}
+	For å finne enhetsvektorene så må man først finne skaleringsfaktorene. Starter med skaleringsfaktoren til $u$
+	\begin{align*}
+		&h_u = \abs{\frac{\partial \vec{r} }{\partial u} }\\
+		&h_u = \abs{a \cos(v) \frac{\partial }{\partial u} \cosh(u) \uvec{i} + a \sin(v) \frac{\partial }{\partial v} \sinh \left( u \right) \uvec{j}}\\
+		&\boxed{a = 1}\\
+		&h_u = \abs{\cos(v) \sinh \left( u \right) \uvec{i} + \sin(v)  \cosh \left( u \right) }\\
+		&h_u = \sqrt{\left( \cos(v) \sinh \left( u \right)  \right)^2 + \left( \sin(v) \cosh \left( u \right)  \right) ^2 }\\
+		&h_u = \sqrt{\cos^2(v)\sinh^2 \left( u \right) + \sin^2(v) \cosh^2 \left( u \right)   }\\
+		&\boxed{\cosh^2 \left( u \right) = 1 + \sinh^2 \left( u \right) }\\
+		&h_u = \sqrt{\cos^2(v) \sinh^2 \left( u \right) + \sin^2(v) \left( 1 + \sinh^2 \left( u  \right)  \right)  }\\
+		&h_u = \sqrt{\cos^2(v) \sinh^2 \left( u  \right) + \sinh ^2\left( u \right) \sin^2(v) + \sin^2(v)   }\\
+		&h_u = \sqrt{\sinh ^2\left( u \right) \left( \cos^2(v) + \sin^2(v)  \right) + \sin^2(v) }\\
+		&h_u = \sqrt{\sinh^2 \left( u \right) + \sin^2(v)  }
+	\end{align*}
+	Finner så skaleringsfaktoren til $v$
+	 \begin{align*}
+		&h_v = \abs{\frac{\partial \vec{r} }{\partial v} }\\
+		&h_v = \abs{\cosh \left( u \right) \frac{\partial }{\partial v} \cos(v) \uvec{i} + \sinh \left( u \right) \frac{\partial }{\partial v} \sin(v)  \uvec{j}}\\
+		&h_v = \abs{- \cosh \left( u \right) \sin(v)  \uvec{i} + \sinh \left( u \right) \cos(v) \uvec{j}}\\
+		&h_v = \sqrt{\left( - \cosh \left( u \right) \sin(v)  \right) ^2 + \left( \sinh \left( u \right) \cos(v)  \right) ^2}\\
+		&h_v = \sqrt{\cosh^2 \left( u \right) \sin^2(v) + \sinh^2 \left( u \right) \cos^2(v) }\\
+		&h_v = \sqrt{\left( 1 + \sinh^2 \left( u \right)  \right) \sin^2(v) + \sinh ^2\left( u \right) \cos^2(v)  }\\
+		&h_v = \sqrt{\sin^2(v) + \sinh^2 \left( u \right) \sin^2 \left( v \right) + \sinh^2 \left( u \right) \cosh^2 \left( v \right)  }\\
+		&h_v = \sqrt{\sin^2 \left( v \right) + \sinh^2 \left( u \right) \left( \sin^2 \left( v \right) + \cos^2 \left( v \right)  \right) }\\
+		&h_v = \sqrt{\sinh^2 \left( u \right) + \sin^2 \left( v \right) }
+	\end{align*}
+	Ser da at $h_u = h_v$
+	Enhetsvektorer er da gitt ved 
+	\begin{align*}
+		\mathbf{e}_u &= \frac{1}{h_u} \frac{\partial \vec{r} }{\partial u} \\
+		\mathbf{e}_u &= \frac{1}{\sqrt{\sinh^2 \left( u \right) + \sin^2 \left( v \right) }} \left( \cos(v) \sinh \left( u \right) \uvec{i} + \sin(v) \cosh \left( u \right) \uvec{j} \right) \\
+	\end{align*}
+	Og
+	\begin{align*}
+		\mathbf{e}_v &= \frac{1}{h_v} \frac{\partial \vec{r} }{\partial v} \\
+		\mathbf{e}_v &= \frac{1}{\sqrt{\sinh^2 \left( u \right) + \sin^2 \left( v \right) }} \left( -\cosh \left( u \right) \sin(v) \uvec{i} + \sinh \left( u \right)  \cos(v) \uvec{j} \right) 
+	\end{align*}
+	Hvis de er ortogonale så må $\mathbf{e}_u \cdot \mathbf{e}_v = 0$
+	\begin{align*}
+		&\mathbf{e}_u \cdot \mathbf{e}_v = 
+			\frac{1}{\sqrt{\sinh^2 \left( u \right) + \sin^2 \left( v \right) }}
+			\begin{pmatrix}
+			\cos(v) \sinh \left( u \right) \\ \sin(v) \cosh \left( u \right)
+			\end{pmatrix}
+			\cdot \frac{1}{\sqrt{\sinh^2 \left( u \right) + \sin^2 \left( v \right) }}
+			\begin{pmatrix}
+			-\cosh \left( u \right) \sin(v) \\
+			\sinh \left( u \right) \cos(v)
+			\end{pmatrix}\\
+		&\mathbf{e}_u \cdot \mathbf{e}_v = \frac{1}{\sinh^2 \left( u \right) \sin^2 \left( v \right) } \left(- \cos(v) \sinh \left( u \right) \cosh \left( u \right) \sin(v)
+		+ \sin(v) \cosh \left( u \right) \sinh \left( u \right) \cos(v) \right) \\
+		&\mathbf{e}_u \cdot \mathbf{e}_v = \left( - \sin(v) \cos(v) \sinh \left( u \right) \cosh \left( u \right) + \sin(v) \cos(v) \sinh \left( u \right) \cosh \left( u \right)  \right) \\
+		&\mathbf{e}_u \cdot \mathbf{e}_v = 0
+	\end{align*}
+	Med dette så observeres det at enhetsvektorene er ortogonale
+
+\section*{3}
+	\subsection*{a}
+	Strømfunksjon \[
+	v_x = \frac{\partial \psi}{\partial y}  \wedge v_y = \frac{\partial \psi}{\partial x} 
+	\] 
+	\begin{align*}
+		& \frac{\partial \psi}{\partial y} = -v_x
+		& \wedge &
+		& \frac{\partial \psi}{\partial x} = v_y\\
+		& \psi (x,y) = - \int \cos(x) \sin(y) \mathrm{e} ^{-2vt} \dd{y}
+		& \wedge &
+		& \psi (x,y) = \int -\sin(x) \cos(y) \mathrm{e}^{-2vt} \dd{x}\\
+		& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} + C
+		& \wedge &
+		& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} + C
+	\end{align*}
+\end{document}
