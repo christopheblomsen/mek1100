@@ -211,9 +211,15 @@ INPUT /usr/share/texmf-dist/tex/latex/base/omscmr.fd
 INPUT 2c.png
 INPUT ./2c.png
 INPUT ./2c.png
+INPUT 2d_elliptical.png
+INPUT ./2d_elliptical.png
+INPUT ./2d_elliptical.png
 INPUT 2d.png
 INPUT ./2d.png
 INPUT ./2d.png
+INPUT 3b.png
+INPUT ./3b.png
+INPUT ./3b.png
 INPUT template.aux
 INPUT ./template.out
 INPUT ./template.out

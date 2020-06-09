@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1591724893 "template.tex" "template.pdf" "template" 1591724893
+["pdflatex"] 1591729608 "template.tex" "template.pdf" "template" 1591729608
   "/dev/null" 1591702827 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1572595918 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
@@ -121,10 +121,12 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1589014667 4700588 6cff29fd2f933ef89e76aa832077506f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1589014641 8044938 f80a72c82bc271ce2de43241627dc61f ""
   "2c.png" 1591724794 74475 422014566eee8e5e2ba5ea8eee5feaf8 ""
-  "2d.png" 1591723866 59225 62408e422232c8e4b624246cdb66cbb1 ""
-  "template.aux" 1591724889 1126 282e302ffab6ae958640771a1e3728e9 "pdflatex"
-  "template.out" 1591724889 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "template.tex" 1591724893 21519 e313a57778a1d46cabd8d5e27146acba ""
+  "2d.png" 1591727086 57862 d342628a7738d225f0b54f9a87da1702 ""
+  "2d_elliptical.png" 1591727088 10366 ff91aa9765e52fa51456a791b0d802b6 ""
+  "3b.png" 1591726094 211697 2feaa18cc0c2e61aee2b832a82a1a81c ""
+  "template.aux" 1591729411 1607 e14dbcc62b92f8fea5a0db2f6ef948c1 "pdflatex"
+  "template.out" 1591729410 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "template.tex" 1591729606 23437 2ec4065ca886cfd9ed2d0248f641238f ""
   (generated)
   "template.aux"
   "template.out"

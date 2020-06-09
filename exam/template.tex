@@ -188,6 +188,26 @@
 	\end{align*}
 	Med dette så observeres det at enhetsvektorene er ortogonale
 
+	\subsection*{b}
+		Siden ingen $f$ har blitt oppgitt så tar jeg utgangspunkt i en helt generell $f$. Gradienten blir da
+		\begin{align*}
+			&\nabla f = \frac{1}{h_u} \frac{\partial f}{\partial u} \mathbf{e}_u + \frac{1}{h_v} \frac{\partial f}{\partial v} \mathbf{e}_v\\
+			&\boxed{h_u=h_v=h}\\
+			&\nabla f = \frac{1}{h} \left( \frac{\partial f}{\partial u} \mathbf{e}_u + \frac{\partial f}{\partial v} \mathbf{e}_v \right) 
+		\end{align*}
+		Veit ikke hva $w_u$ og $w_v$ inneholder så blir generell divergens
+		\begin{align*}
+			&\nabla \cdot \vec{w} = \frac{1}{h_u h_v} \left( \frac{\partial }{\partial u} \left( w_u \mathbf{e}_u h_v \right) + \frac{\partial }{\partial v} \left( w_v \mathbf{e}_v h_u \right)  \right) 
+		\end{align*}
+		Laplace operatoren blir
+		\begin{align*}
+			&\nabla^2 = \frac{1}{h_u h_v} \left[\frac{\partial }{\partial u} \left( \frac{h_u}{h_v} \frac{\partial }{\partial u}  \right) 
+			+ \frac{\partial }{\partial v} \left( \frac{h_v}{h_u} \frac{\partial }{\partial v}  \right) \right]\\
+			&\boxed{h_v=h_u=h}\\
+			&\nabla^2 = \frac{1}{h^2} \left[\frac{\partial }{\partial u} \frac{\partial }{\partial u}  + \frac{\partial }{\partial v} \frac{\partial }{\partial v} \right]\\
+			&\nabla^2 = \frac{1}{h^2} \left[\frac{\partial ^2}{\partial u^2} + \frac{\partial ^2}{\partial v^2} \right]
+		\end{align*}
+
 	\subsection*{c}
 	Python kode til skissen er
 	\begin{lstlisting}
@@ -273,21 +293,36 @@ gradf = e[0]*df[0] + e[1]*df[1]
 dfdxi = sp.lambdify((u, v), gradf[0])(ui, vi)
 dfdyi = sp.lambdify((u, v), gradf[1])(ui, vi)
 plt.contourf(x, y, fj)
-plt.quiver(x[::50], y[::50], dfdxi[::50], dfdyi[::50], scale=15)
+plt.quiver(x[::50], y[::50], dfdxi[::50], dfdyi[::50], scale=15, pivot="middle")
 
 plt.xlabel("x")
 plt.ylabel("y")
 
 plt.savefig("2d.png")
 plt.show()
+plt.close()
+
+plt.contourf(ui, vi, fj)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.savefig("2d_elliptical.png")
+plt.show()
 	\end{lstlisting}
+	\newpage
+	\begin{figure}[h!]
+		\centering
+		\caption{Konturplott i elliptiske koordinater oppgave 2d}
+		\label{fig:2d_elliptical}
+		\includegraphics{2d_elliptical.png}
+	\end{figure}
+	
 		\begin{figure}[h!]
 			\centering
-			\caption{Graf til oppgave 2d}
+			\caption{Pilplott til oppgave 2d}
 			\label{fig:2d}
 			\includegraphics{2d.png}
 		\end{figure}
-		Observerer da at vektorene peker ut i fra origo og brennpunktene $(-1, 0)$ og $(1,0)$
+		Observerer da at vektorene peker ut i fra origo og blir slukt ned i brennpunktene $(-1, 0)$ og $(1,0)$
 		\newpage
 	
 
@@ -320,6 +355,19 @@ plt.show()
 			& \phi = - \sin(x) \sin(y) \mathrm{e}^{-2vt} + f(x)
 		\end{align*}
 		Disse kan ikke være like så det finnes ikke noe skalarpotensial
+	
+	\subsection*{b}
+		Python kode til pilplott med strømlinjer
+
+		Som produserer følgende graf
+		\begin{figure}[h!]
+			\centering
+			\caption{Pilplott med strømlinjer til 3b}
+			\label{fig:3b}
+			\includegraphics{3b.png}
+		\end{figure}
+		\newpage
+		
 	\subsection*{c}
 		Kan bruke Gauss' divergensteorem siden det er en generalisering av Green Sett inn mer her siden 
 		\begin{align*}

@@ -46,10 +46,17 @@ gradf = e[0]*df[0] + e[1]*df[1]
 dfdxi = sp.lambdify((u, v), gradf[0])(ui, vi)
 dfdyi = sp.lambdify((u, v), gradf[1])(ui, vi)
 plt.contourf(x, y, fj)
-plt.quiver(x[::50], y[::50], dfdxi[::50], dfdyi[::50], scale=15)
+plt.quiver(x[::50], y[::50], dfdxi[::50], dfdyi[::50], scale=15, pivot="middle")
 
 plt.xlabel("x")
 plt.ylabel("y")
 
 plt.savefig("2d.png")
+plt.show()
+plt.close()
+
+plt.contourf(ui, vi, fj)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.savefig("2d_elliptical.png")
 plt.show()

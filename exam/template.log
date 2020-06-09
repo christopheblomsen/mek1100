@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.9)  9 JUN 2020 19:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.9)  9 JUN 2020 21:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -803,45 +803,66 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 74.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 204.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 224.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 204.
-<2c.png, id=31, 462.528pt x 346.896pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 224.
+<2c.png, id=36, 462.528pt x 346.896pt>
 File: 2c.png Graphic file (type png)
 <use 2c.png>
-Package pdftex.def Info: 2c.png  used on input line 222.
+Package pdftex.def Info: 2c.png  used on input line 242.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 222--223
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 242--243
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4] [5 <./2c.png>]
-<2d.png, id=91, 462.528pt x 346.896pt>
+[5] [6 <./2c.png>] [7]
+<2d_elliptical.png, id=145, 462.528pt x 346.896pt>
+File: 2d_elliptical.png Graphic file (type png)
+<use 2d_elliptical.png>
+Package pdftex.def Info: 2d_elliptical.png  used on input line 316.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 316--317
+ [][] 
+ []
+
+<2d.png, id=146, 462.528pt x 346.896pt>
 File: 2d.png Graphic file (type png)
 <use 2d.png>
-Package pdftex.def Info: 2d.png  used on input line 288.
+Package pdftex.def Info: 2d.png  used on input line 323.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 288--289
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 323--324
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7 <./2d.png>]
-./template.tex:362: Undefined control sequence.
+[8 <./2d_elliptical.png>] [9 <./2d.png>]
+<3b.png, id=161, 462.528pt x 346.896pt>
+File: 3b.png Graphic file (type png)
+<use 3b.png>
+Package pdftex.def Info: 3b.png  used on input line 367.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 367--368
+ [][] 
+ []
+
+[10 <./3b.png>]
+./template.tex:410: Undefined control sequence.
 <argument> ...}'_{x,0}(t') \dd {t'} = \int \limts 
                                                   _0^{\frac {\pi }{2}} 0 \dd...
-l.362 		\end{align*}
+l.410 		\end{align*}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -849,10 +870,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./template.tex:362: Undefined control sequence.
+./template.tex:410: Undefined control sequence.
 <argument> ...}'_{x,0}(t') \dd {t'} = \int \limts 
                                                   _0^{\frac {\pi }{2}} 0 \dd...
-l.362 		\end{align*}
+l.410 		\end{align*}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -860,38 +881,38 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[8]
-./template.tex:375: Limit controls must follow a math operator.
+./template.tex:423: Limit controls must follow a math operator.
 <argument> ...} \left [ \sin (t') \right ]\limits 
                                                   _0^{\frac {\pi }{2}}\\ &\i...
-l.375 		\end{align*}
+l.423 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:375: Limit controls must follow a math operator.
+./template.tex:423: Limit controls must follow a math operator.
 <argument> ...} \left [ \sin (t') \right ]\limits 
                                                   _0^{\frac {\pi }{2}}\\ &\i...
-l.375 		\end{align*}
+l.423 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:388: Limit controls must follow a math operator.
+[11]
+./template.tex:436: Limit controls must follow a math operator.
 <argument> ...} \left [ \sin (t') \right ]\limits 
                                                   _{\frac {\pi }{2}}^0\\ &\i...
-l.388 		\end{align*}
+l.436 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:388: Limit controls must follow a math operator.
+./template.tex:436: Limit controls must follow a math operator.
 <argument> ...} \left [ \sin (t') \right ]\limits 
                                                   _{\frac {\pi }{2}}^0\\ &\i...
-l.388 		\end{align*}
+l.436 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-[9]
-./template.tex:404: Undefined control sequence.
-l.404 			\oint\limts
+[12]
+./template.tex:452: Undefined control sequence.
+l.452 			\oint\limts
                     _C \vec{u} \cdot \dd{\vec{r}} = \int\limits_\sigma \left...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -899,58 +920,58 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[10]
-./template.tex:429: Limit controls must follow a math operator.
+./template.tex:477: Limit controls must follow a math operator.
 <argument> ...(y) \left [\sin (x) \right ]\limits 
                                                   _0^{\frac {\pi }{2}} \dd {...
-l.429 		\end{align*}
+l.477 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:429: Limit controls must follow a math operator.
+./template.tex:477: Limit controls must follow a math operator.
 <argument> ...2vt}\left [\sin (y) \right ]\limits 
                                                   _0^{\frac {\pi }{2}}\\ &\i...
-l.429 		\end{align*}
+l.477 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:429: Limit controls must follow a math operator.
+./template.tex:477: Limit controls must follow a math operator.
 <argument> ...(y) \left [\sin (x) \right ]\limits 
                                                   _0^{\frac {\pi }{2}} \dd {...
-l.429 		\end{align*}
+l.477 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-./template.tex:429: Limit controls must follow a math operator.
+./template.tex:477: Limit controls must follow a math operator.
 <argument> ...2vt}\left [\sin (y) \right ]\limits 
                                                   _0^{\frac {\pi }{2}}\\ &\i...
-l.429 		\end{align*}
+l.477 		\end{align*}
                     
 I'm ignoring this misplaced \limits or \nolimits command.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 430.
-[11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 430.
+[13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 478.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 478.
  (./template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 430.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 430.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 478.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 478.
 Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 430.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 478.
  ) 
 Here is how much of TeX's memory you used:
- 22135 strings out of 492167
- 364282 string characters out of 6131559
- 795813 words of memory out of 5000000
- 26191 multiletter control sequences out of 15000+600000
+ 22168 strings out of 492167
+ 364717 string characters out of 6131559
+ 817813 words of memory out of 5000000
+ 26208 multiletter control sequences out of 15000+600000
  538511 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  52i,28n,71p,370b,1863s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb>
-Output written on template.pdf (11 pages, 253145 bytes).
+Output written on template.pdf (14 pages, 410095 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 104 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
