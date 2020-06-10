@@ -1,10 +1,11 @@
-import sympy as sp
-import matplotlib.pyplot as plt
+import numpy as np
 
-a, b, t, v = sp.symbols("a, b, t, v")
+t = np.linspace(0, 2*np.pi, 1000)
 
-x = sp.cos(a)*sp.sin(b)*sp.exp(-2*v*t)
-y = -sp.sin(a)*sp.cos(b)*sp.exp(-2vt)
-N = 100
-t = np.linspace(- np.pi, np.pi, N)
+dx = -np.sin(t)
+dy = np.cos(t)
+dz = np.cos(np.cos(t))*np.sin(np.cos(t))*np.sin(t) - np.cos(np.cos(t))*np.sin(np.sin(t))*np.cos(t)
 
+L = np.trapz(np.sqrt(dx**2 + dy**2 + dz**2), t)
+
+print(L)
