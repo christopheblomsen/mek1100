@@ -8,4 +8,4 @@ dz = np.cos(np.cos(t))*np.sin(np.cos(t))*np.sin(t) - np.cos(np.cos(t))*np.sin(np
 
 L = np.trapz(np.sqrt(dx**2 + dy**2 + dz**2), t)
 
-print(L)
+print(f"{L:f}")

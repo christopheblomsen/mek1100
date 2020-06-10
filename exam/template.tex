@@ -475,4 +475,187 @@ plt.show()
 			 &\int\limits_ \sigma \left( \nabla \times \vec{u}  \right) \cdot \vec{n} \dd{\sigma} =-2 \mathrm{e}^{-2vt}\left( 1-0 \right) \\
 			 &\int\limits_ \sigma \left( \nabla \times \vec{u}  \right) \cdot \vec{n} \dd{\sigma} =-2 \mathrm{e}^{-2vt}
 		\end{align*}
+	\subsection*{d}
+	Setter $x(t) = \cos(t) $ og $y(t)=\sin(t) $ da blir \[
+		z(t) = \cos(\cos(t) ) \cos(\sin(t) ) 
+	\] 
+	Deriverer vi $x,y$ med hensyn på $t$ får vi da
+	\begin{align*}
+		&x'(t)	= - \sin(t) &\wedge & &y'(t) = \cos(t) 
+	\end{align*}
+	og $z$
+	 \begin{align*}
+		 &z'(t) = \frac{\dd{}}{\dd{t}} \left( \cos(\cos(t) ) \cos(\sin(t) )  \right) \\
+		 &z'(t) = \cos(\sin(t) ) \frac{\dd{}}{\dd{t}}\left ( \cos(\cos(t) )\right) + \cos(\cos(t) ) \frac{\dd{}}{\dd{t}}\left ( \cos(\sin(t) )\right) \\
+		 &\boxed{u = \cos(t) \wedge v = \sin(t) }\\
+		 &z'(t) = \cos(\sin(t) ) \frac{\dd{}}{\dd{u}}\left( \cos(u)  \right) \frac{\dd{}}{\dd{t}}\left( \cos(t)  \right) + \cos(\cos(t) ) \frac{\dd{}}{\dd{v}} \left( \cos(v)  \right) \frac{\dd{}}{\dd{t}} \sin(t) \\
+		 &z'(t) = \cos(\sin(t) ) \left( - \sin(u)  \right) \left( -\sin(t)  \right) + \cos(\cos(t) ) \left( - \sin(v)  \right) \cos(t)  \\
+		 &z'(t) = \cos(\sin(t) ) \sin(\cos(t) ) \sin(t)  - \cos(\cos(t)) \sin(\sin(t) ) \cos(t) 
+	\end{align*}
+	For å finne buelengden så kan man bruke formelen \[
+		L(a,b) = \int\limits_a^b \sqrt{\left( x'(t) \right) ^2 + \left( y'(t) \right) ^2 + \left( z'(t) \right) ^2} \dd{t}
+	\] 
+	Der $a=0$ og $b= 2 \pi$ så blir integrallet
+	\begin{align*}
+		\int\limits_0^{2 \pi} \sqrt{\left( - \sin(t)  \right)^2 + \left( \cos(t)  \right) ^2 + \left(\cos(\sin(t) ) \sin(\cos(t) ) \sin(t)  - \cos(\cos(t)) \sin(\sin(t) ) \cos(t)  \right)^2 }\dd{t}
+	\end{align*}
+	Bruker Python til å regne ut det integrallet og koden ser slik ut
+	\begin{lstlisting}
+import numpy as np
+
+t = np.linspace(0, 2*np.pi, 1000)
+
+dx = -np.sin(t)
+dy = np.cos(t)
+dz = np.cos(np.cos(t))*np.sin(np.cos(t))*np.sin(t) - np.cos(np.cos(t))*np.sin(np.sin(t))*np.cos(t)
+
+L = np.trapz(np.sqrt(dx**2 + dy**2 + dz**2), t)
+
+print(f"{L:f}")
+	\end{lstlisting}
+	Som gir meg at \[
+	L = 6.284694
+	\] 
+	Som er litt større enn $2 \pi$ som gir mening siden kurven ser noe slikt ut i Geogebra
+	\begin{figure}[h!]
+		\centering
+		\caption{Kurven til 3d}
+		\label{fig:3d}
+		\includegraphics[scale=0.18]{3d.png}
+	\end{figure}
+	\newpage
+	\subsection*{e}
+		Bruker formelen \[
+		\frac{D \vec{v} }{D t} = \frac{\partial \vec{v} }{\partial t}  + \vec{v} \cdot \nabla \vec{v} 
+		\] 
+		Der $\vec{v} = \vec{u} = \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} $\\
+		Finner først lokalakselerasjonen
+		\begin{align*}
+			&\frac{\partial \vec{u} }{\partial t} = \frac{\partial }{\partial t} \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt}\\
+			&\frac{\partial \vec{u} }{\partial t} = \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \frac{\partial }{\partial t} \mathrm{e}^{-2vt}\\ 
+			&\frac{\partial \vec{u} }{\partial t} = -2v\left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right)\mathrm{e}^{-2vt}\\
+			&\frac{\partial \vec{u} }{\partial t} = -2v \vec{u} 
+		\end{align*}
+		Finner så den konvektive akselerasjonen
+		\begin{align*}
+			&\vec{u} \cdot \nabla \vec{u} = \left( \vec{u}  \cdot \nabla u_x \right) \uvec{i} + \left( \vec{u} \cdot \nabla u_y \right) \uvec{j}\\
+			&\vec{u} \cdot \nabla \vec{u} = u_x \frac{\partial \vec{u} }{\partial x} + u_y \frac{\partial \vec{u} }{\partial y} \\
+			&\vec{u} \cdot \nabla \vec{u} = u_x \frac{\partial }{\partial x} \left(\left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt}  \right) 
+			+ u_y  \frac{\partial }{\partial y} \left( \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} \right) \\
+			&\vec{u} \cdot \nabla \vec{u} = \mathrm{e}^{-2vt} \left( u_x \left( -\sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) 
+			+ u_y \left( \cos(x) \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right)  \right) \\
+			&\vec{u} \cdot \nabla \vec{u} = \mathrm{e}^{-2vt} 
+			\begin{aligned}
+				\Bigg( &\cos(x) \sin(y) \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j}  \right) \\
+				&- \sin(x) \cos(y) \mathrm{e}^{-2vt} \left( \cos(x) \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right)   \Bigg) 
+			\end{aligned}\\
+			&\vec{u} \cdot \nabla \vec{u} = \mathrm{e}^{-4vt} \left( \cos(x) \sin(y) \left( -\sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) 
+			- \sin(x) \cos(y) \left( \cos(x) \cos(y) \uvec{i} - \sin(x) \sin(y) \uvec{j} \right) \right) \\
+			&\vec{u} \cdot \nabla \vec{u} =\mathrm{e}^{-4vt} \left( -\sin^2 \left( y \right)\cos(x) \sin(x)  \uvec{i} - \cos^2 \left( x \right) \cos(y) \sin(y) \uvec{j} 
+			- \cos^2 \left( y \right) \cos(x) \sin(x) \uvec{i} - \sin^2 \left( x \right) \cos(y) \sin(y) \uvec{j}\right) \\
+			&\vec{u} \cdot \nabla \vec{u} =\mathrm{e}^{-4vt}
+			\begin{aligned}
+				&\Bigg( - \left( \left( \sin^2 \left( y \right) \cos(x) \sin(x) + \cos^2 \left( y \right) \cos(x) \sin(x)  \right) \uvec{i}\\
+				&+ \left( \cos^2 \left( x \right) \cos(y) \sin(y)  + \sin^2 \left( x \right) \cos(y) \sin(y)  \right) \uvec{j}\Big)  \Bigg) 
+			\end{aligned}\\
+			&\vec{u} \cdot \nabla \vec{u} =-\mathrm{e}^{-4vt} \left( \cos(x) \sin(x) \left( \sin^2 \left( y \right) + \cos^2 \left( y \right)  \right) \uvec{i}
+			+\cos(y) \sin(y) \left( \sin^2 \left( x \right) +\cos^2 \left( x \right)  \right) \uvec{j}\right) \\
+			&\boxed{\sin^2 \left( x \right) + \cos^2 \left( x \right) = 1}\\
+			&\vec{u} \cdot \nabla \vec{u} =-\mathrm{e}^{-4vt} \left( \cos(x) \sin(x) \uvec{i} + \cos(y) \sin(y) \uvec{j} \right) \\
+			&\boxed{2 \cos(x) \sin(x) = \sin(2x) }\\
+			&\vec{u} \cdot \nabla \vec{u} =-\mathrm{e}^{-4vt} \left( \frac{1}{2}\sin(2x) \uvec{i} + \frac{1}{2}\sin(2y) \uvec{j} \right) \\
+			&\vec{u} \cdot \nabla \vec{u} = - \frac{1}{2}\mathrm{e}^{-4vt} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) 
+		\end{align*}
+		Da blir \[
+			\frac{D \vec{u} }{D t} = - 2v \vec{u}  - \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt}_\blacksquare
+		\] 
+		Skal så finne trykket $p$ 
+		\begin{align*}
+			\frac{D \vec{u} }{D t} &= - \nabla p + v \nabla^2 \vec{u} \\
+			\nabla p &= v \nabla^2 \vec{u} - \frac{D \vec{u} }{D t}\\
+			\nabla p &= v \nabla^2 \vec{u}  + 2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt}
+		\end{align*}
+		Må først da regne ut
+		\begin{align*}
+			& v \cdot \nabla^2 \vec{u} = v \cdot \left( \frac{\partial ^2}{\partial x^2} \vec{u} + \frac{\partial ^2}{\partial y^2} \vec{u}  \right) \\
+			&\boxed{%
+				\begin{aligned}
+					&\frac{\partial ^2}{\partial x^2} \vec{u} = \frac{\partial ^2}{\partial x^2 } \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt}\\ 
+					&\frac{\partial ^2}{\partial x^2} \vec{u} = \frac{\partial }{\partial x} \left( -\sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt}\\
+					& \frac{\partial ^2}{\partial x^2} \vec{u} = \left(- \cos(x)\sin(y) \uvec{i} + \sin(x) \cos(y) \uvec{j}  \right) \mathrm{e}^{-2vt}
+			\end{aligned}}\\
+			&\boxed{%
+				\begin{aligned}
+					&\frac{\partial ^2}{\partial y^2} \vec{u} = \frac{\partial ^2}{\partial y^2 } \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt}\\ 
+					&\frac{\partial ^2}{\partial y^2} \vec{u} = \frac{\partial }{\partial y} \left( \cos(x) \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right) \mathrm{e}^{-2vt}\\
+					& \frac{\partial ^2}{\partial y^2} \vec{u} = \left(- \cos(x) \sin(y) \uvec{i} + \sin(x) \cos(y) \uvec{j}  \right) \mathrm{e}^{-2vt}
+			\end{aligned}}\\
+			& v \cdot \nabla^2 \vec{u} = v \cdot \left ( \left(- \cos(x)\sin(y) \uvec{i} + \sin(x) \cos(y) \uvec{j}  \right) \mathrm{e}^{-2vt}
+			\cdot \left(- \cos(x) \sin(y) \uvec{i} + \sin(x) \cos(y) \uvec{j}  \right) \mathrm{e}^{-2vt} \right)\\
+			& v \cdot \nabla^2 \vec{u} = v \mathrm{e}^{-2vt} \cdot \left( -2 \cos(x) \sin(y) \uvec{i} + 2 \sin(x) \cos(y) \uvec{j} \right) \\
+			& v \cdot \nabla^2 \vec{u} =-2v \left(\cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j}  \right)  \mathrm{e}^{-2vt}\\
+			& v \cdot \nabla^2 \vec{u} = - 2v \vec{u} 
+		\end{align*}
+		Da blir \[
+		\nabla p =2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} - 2v \vec{u} 
+		\] 
+		Ser så på integrallet med hensyn på $x$ 
+		\begin{align*}
+			&p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{x}
+		\end{align*}
+		Tar integrallene hver for seg
+		\begin{align*}
+			&\int 2v \vec{u} \dd{x} = 2v \int \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} \dd{x}\\
+			&\int 2v \vec{u} \dd{x} = 2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) \\
+		\end{align*}
+		Ser så på
+		\begin{align*}
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \dd{x}\\
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2x) \uvec{i} \right) \\
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2x) \uvec{i}
+		\end{align*}
+		Observerer at det første og siste integrallet er likt bare med motsatt fortegn \[
+			&\int- 2v \vec{u} \dd{x} = -2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) \\
+		\] 
+		Da blir
+		\begin{align*}
+			&p(x,y,t) =
+			\begin{aligned}
+			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i}\\
+			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) + f(y)\\
+			\end{aligned}\\
+			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} + f(y)
+		\end{align*}
+		Ser så med hensyn på $y$ \[
+			p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{y}
+		\] 
+		Tar integrallene hver for seg
+		\begin{align*}
+			&\int 2v \vec{u} \dd{y} = 2v \int \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} \dd{y}\\
+			&\int 2v \vec{u} \dd{y} = 2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right) \\
+		\end{align*}
+		Ser så på
+		\begin{align*}
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \dd{y}\\
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2y) \uvec{j} \right) \\
+			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2y) \uvec{j}
+		\end{align*}
+		Observerer at det første og siste integrallet er likt bare med motsatt fortegn \[
+			&\int- 2v \vec{u} \dd{y} = -2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right) \\
+		\] 
+		Da blir
+		\begin{align*}
+			&p(x,y,t) =
+			\begin{aligned}
+			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}\\
+			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) + g(x)\\
+			\end{aligned}\\
+			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j} + g(x)
+		\end{align*}
+		Sammenligner jeg disse 2 $p$-ene så ser jeg at \[
+			g(x) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} \wedge f(y) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}
+		\] 
+		Følgelig blir \[
+			p(x,y,t) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}= - \frac{1}{4}\mathrm{e}^{-2vt} \left( \cos(2x) \uvec{i} + \cos(2y) \uvec{j} \right) 
+		\] 
 \end{document}
