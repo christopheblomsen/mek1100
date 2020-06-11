@@ -223,7 +223,7 @@ for i in range(1, 4):
     y = np.sinh(i)*np.sin(v)
     plt.plot(x, y, label=f"$\cosh({i}) \cdot \sinh(v)$")
 
-for i in range(1, 7):
+for i in range(1, 9):
     x = np.cosh(u)*np.cos(i)
     y = np.sinh(u)*np.sin(i)
     plt.plot(x, y, label=f"$\cosh(u) \cdot \sinh({i})$")
@@ -358,7 +358,19 @@ plt.show()
 	
 	\subsection*{b}
 		Python kode til pilplott med strømlinjer
+\begin{lstlisting}
+import numpy as np
+import matplotlib.pyplot as plt
 
+t = np.linspace(0, 10, 50)
+x, y = np.meshgrid(t, t, indexing="ij")
+
+plt.contour(x, y, -np.cos(x)*np.cos(y), 4)
+plt.quiver(x, y, np.cos(x)*np.sin(y), -np.sin(x)*np.cos(y), pivot="middle")
+
+plt.savefig("3b.png")
+plt.show()
+\end{lstlisting}
 		Som produserer følgende graf
 		\begin{figure}[h!]
 			\centering
@@ -369,7 +381,29 @@ plt.show()
 		\newpage
 		
 	\subsection*{c}
-		Kan bruke Gauss' divergensteorem siden det er en generalisering av Green Sett inn mer her siden 
+	Hvis $\vec{F} (x,y) = P(x,y) \uvec{i} + Q(x,y) \uvec{j}$ er et vektorfelt i planet er \[
+		\nabla \cdot \vec{F} (x,y) = \frac{\partial P}{\partial x} (x,y) + \frac{\partial Q}{\partial y} (x,y)
+	\] 
+		Dersom $C$ er en enkel, parametrisert kurve i planet som omslutter et område $R$.
+		Så må det finnes en to-dimensjonal versjon av Gauss' sats som sier \[
+		\iint\limits_R \nabla \cdot \vec{F}  \dd{x}\dd{y} = \int\limits_C \vec{F} \cdot \vec{n}  \dd{s}
+		\] 
+		der $\vec{n} $ er enhetsnormalvektoren til $C$ som peker ut av området $R$.
+		Skal nå vise at dette bare er en omfurmelering av Greens teorem.
+		Starter med å velge en positiv orientert parametrisering $\vec{r} (t) = x(t) \uvec{i} + y(t) \uvec{j}, t \in [a,b]$, som gjennomløper $C$ med fart konstant lik 1.
+		Da er $\overrightarrow{r}'(t) = x'(t) \uvec{i} + y'(t) \uvec{j}$ en tangentvektor med lengde $1$.
+		Det betyr at $\vec{n} (t) = y'(t) \uvec{i} - x'(t) \uvec{j}$ er en enhetsnormalvektor som peker ut av av området $R$.  \[
+			\int\limits_C \vec{F} \cdot \vec{n} \dd{s}= \int\limits_a^b \left( P \left( \vec{r} (t) \right) y'(t) + Q \left( \vec{r} (t) \right) \left( -x'(t) \right)  \right) \dd{t}
+			= \int\limits_C -Q \dd{x}+P \dd{y}
+		\] 
+		Bruker så Greens teorem \[
+			\int\limits_C -Q \dd{x} + P \dd{y} = \iint\limits_R \left( \frac{\partial p}{\partial x} - \frac{\partial (-Q)}{\partial y}  \right) \dd{x}\dd{y}= \iint\limits_R \nabla \cdot \vec{F} \dd{x}\dd{y}
+		\] 
+		Dermed er \[
+		\iint\limits_R \nabla \cdot \vec{F} \dd{x}\dd{y}= \int\limits_C \vec{F} \cdot \vec{n} \dd{s}
+		\] 
+		Har med det vist at den to-dimensjonale versjonen av Gauss' sats følger fra Green\\
+		Regner så ut fluksen med Gauss' sats
 		\begin{align*}
 			\int\limits_C \vec{u}  \cdot \vec{n} \dd{s} = \iint \limits_R \nabla \cdot \vec{u} \dd{x}\dd{y}
 		\end{align*}

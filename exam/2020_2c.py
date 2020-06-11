@@ -10,7 +10,7 @@ for i in range(1, 4):
     y = np.sinh(i)*np.sin(v)
     plt.plot(x, y, label=f"$\cosh({i}) \cdot \sinh(v)$")
 
-for i in range(1, 7):
+for i in range(1, 9):
     x = np.cosh(u)*np.cos(i)
     y = np.sinh(u)*np.sin(i)
     plt.plot(x, y, label=f"$\cosh(u) \cdot \sinh({i})$")
