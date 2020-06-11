@@ -47,6 +47,7 @@ dfdxi = sp.lambdify((u, v), gradf[0])(ui, vi)
 dfdyi = sp.lambdify((u, v), gradf[1])(ui, vi)
 plt.contourf(x, y, fj)
 plt.quiver(x[::50], y[::50], dfdxi[::50], dfdyi[::50], scale=15, pivot="middle")
+plt.colorbar()
 
 plt.xlabel("x")
 plt.ylabel("y")

@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1591860171 "template.tex" "template.pdf" "template" 1591860171
-  "/dev/null" 1591857502 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1591875373 "template.tex" "template.pdf" "template" 1591875373
+  "/dev/null" 1591871213 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1572595918 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1572595918 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm0700.tfm" 1572595918 1536 73da8e8f1d2a4c957d51ca133585586b ""
@@ -122,15 +122,15 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1589014667 4700588 6cff29fd2f933ef89e76aa832077506f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1589014641 8044938 f80a72c82bc271ce2de43241627dc61f ""
   "2c.png" 1591858996 86745 12fe19bfc15f3c76ccfc4af89022c049 ""
-  "2d.png" 1591727086 57862 d342628a7738d225f0b54f9a87da1702 ""
-  "2d_elliptical.png" 1591727088 10366 ff91aa9765e52fa51456a791b0d802b6 ""
+  "2d.png" 1591873757 52667 b4913b6a054be63d448efb76a18358ee ""
+  "2d_elliptical.png" 1591873792 10366 ff91aa9765e52fa51456a791b0d802b6 ""
   "3b.png" 1591726094 211697 2feaa18cc0c2e61aee2b832a82a1a81c ""
   "3d.png" 1591779625 239165 1d74e5748c838369f361af1807b7525f ""
-  "template.aux" 1591860139 1786 d7a75bee612001ca6af08552ce81e5b7 "pdflatex"
-  "template.out" 1591860138 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "template.tex" 1591860170 37313 113ce015e1080929d6557ca7651b3457 ""
+  "template.aux" 1591875296 1786 d7a75bee612001ca6af08552ce81e5b7 "pdflatex"
+  "template.out" 1591875294 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "template.tex" 1591875299 37454 dfe8c7b5d707b3bd9a3ae555da912a07 ""
   (generated)
+  "template.pdf"
   "template.aux"
   "template.log"
-  "template.pdf"
   "template.out"

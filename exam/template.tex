@@ -322,40 +322,46 @@ plt.show()
 			\label{fig:2d}
 			\includegraphics{2d.png}
 		\end{figure}
-		Observerer da at vektorene peker ut i fra origo og blir slukt ned i brennpunktene $(-1, 0)$ og $(1,0)$
+		Observerer da at vektorene peker ut i fra det lilla og blir slukt ned i det gule
 		\newpage
 	
 
 \section*{3}
 	\subsection*{a}
+		Regner ut $\nabla \cdot \vec{u} $ 
+		\begin{align*}
+			&\nabla \cdot \vec{u} = \frac{\partial }{\partial x} \left( \cos(x) \sin(y)  \right) + \frac{\partial }{\partial y} \left( -\sin(x) \cos(y)  \right) \\
+			&\nabla \cdot \vec{u} = - \sin(x) \sin(y) + \sin(x) \sin(y) \\
+			&\nabla \cdot \vec{u} = 0
+		\end{align*}
+		Divergensen lik $0$ derfor finnes det en Strømfunksjon\\
 		Strømfunksjon \[
-		v_x = \frac{\partial \psi}{\partial y}  \wedge v_y = \frac{\partial \psi}{\partial x} 
+		u_x = \frac{\partial \psi}{\partial y}  \wedge u_y = \frac{\partial \psi}{\partial x} 
 		\] 
 		\begin{align*}
-			& \frac{\partial \psi}{\partial y} = -v_x
+			& \frac{\partial \psi}{\partial y} = -u_x
 			& \wedge &
-			& \frac{\partial \psi}{\partial x} = v_y\\
+			& \frac{\partial \psi}{\partial x} = u_y\\
 			& \psi (x,y) = - \int \cos(x) \sin(y) \mathrm{e} ^{-2vt} \dd{y}
 			& \wedge &
 			& \psi (x,y) = \int -\sin(x) \cos(y) \mathrm{e}^{-2vt} \dd{x}\\
-			& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} + C
+			& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} 
 			& \wedge &
-			& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} + C
+			& \psi (x,y) = - \cos(x) \cos(y)  \mathrm{e}^{-2vt} 
 		\end{align*}
-		Ser så om den har ett skalarpotensial. Hvis det har det så må 
+		Ser så om den har ett skalarpotensial. Hvis det har det så må  $\nabla \times \vec{u} =\vec{0} $
 		\begin{align*}
-			&\frac{\partial \phi}{\partial x} = v_x 
-			&\wedge & 
-			&\frac{\partial \phi}{\partial y} = v_y \\
-			& \phi(x,y) = \int \cos(x) \sin(y) \mathrm{e}^{-2vt} \dd{x}
-			& \wedge &
-			& \phi(x,y) = \int \left( -\sin(x) \cos(y) \mathrm{e}^{-2vt} \right) \dd{y}\\
-			& \phi = \sin(x) \sin(y) \mathrm{e}^{-2vt} + f(y)
-			& \wedge &
-			& \phi = - \sin(x) \sin(y) \mathrm{e}^{-2vt} + f(x)
+			& \nabla \times \vec{u} =
+			\begin{vmatrix}
+				\uvec{i} &\uvec{j} & \uvec{k}\\
+				\frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\
+				\cos(x) \sin(y) \mathrm{e}^{-2vt} & - \sin(x) \cos(y) \mathrm{e}^{-2vt} & 0
+			\end{vmatrix}\\
+			& \nabla \times \vec{u} = \mathrm{e}^{-2vt}\left( \frac{\partial }{\partial x} \left( -\sin(x) \cos(y)  \right) - \frac{\partial }{\partial y} \left( \cos(x) \sin(y)  \right)  \right)  \uvec{k}\\
+			& \nabla \times \vec{u} = \mathrm{e}^{-2vt}\left( - \cos(x) \cos(y)  - \cos(x) \cos(y)  \right) \uvec{k}\\
+			& \nabla \times \vec{u} = -2\mathrm{e}^{-2vt} \cos(x) \cos(y) \uvec{k}
 		\end{align*}
-		Disse kan ikke være like så det finnes ikke noe skalarpotensial
-	
+		Dette er ikke lik $0$ så da finnes det ikke noe skalarpotensial.
 	\subsection*{b}
 		Python kode til pilplott med strømlinjer
 \begin{lstlisting}
@@ -407,13 +413,7 @@ plt.show()
 		\begin{align*}
 			\int\limits_C \vec{u}  \cdot \vec{n} \dd{s} = \iint \limits_R \nabla \cdot \vec{u} \dd{x}\dd{y}
 		\end{align*}
-		Regner ut $\nabla \cdot \vec{u} $ 
-		\begin{align*}
-			&\nabla \cdot \vec{u} = \frac{\partial }{\partial x} \left( \cos(x) \sin(y)  \right) + \frac{\partial }{\partial y} \left( -\sin(x) \cos(y)  \right) \\
-			&\nabla \cdot \vec{u} = - \sin(x) \sin(y) + \sin(x) \sin(y) \\
-			&\nabla \cdot \vec{u} = 0
-		\end{align*}
-		Følgelig er fluksen da $0$\\
+		Fra \textbf{a} veit man at divergensen er $0$. Følgelig er fluksen da $0$\\
 		Sirkulasjonen blir da
 		\begin{align*}
 			&\oint \vec{u}  \cdot \dd{\vec{r} } = \int\limits_0^{\frac{\pi}{2}} \vec{u} \cdot \dd{\vec{r}_{x,0} } + \int\limits_0^{\frac{\pi}{2}} \vec{u} \cdot \dd{\vec{r}_{y,0} }+  \int\limits_{\frac{\pi}{2}}^0 \vec{u} \cdot \dd{\vec{r}_{x,1} } + \int\limits_{\frac{\pi}{2}}^0 \vec{u} \cdot  \dd{\vec{r}_{y,1} }\\
@@ -485,18 +485,9 @@ plt.show()
 		Kan også bruke Stokes sats som sier \[
 			\oint\limts_C \vec{u} \cdot \dd{\vec{r}} = \int\limits_\sigma \left( \nabla \times \vec{u}  \right) \cdot \vec{n} \dd{\sigma}
 		\] 
-		Der 
-		\begin{align*}
-			& \nabla \times \vec{u} =
-			\begin{vmatrix}
-				\uvec{i} &\uvec{j} & \uvec{k}\\
-				\frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z} \\
-				\cos(x) \sin(y) \mathrm{e}^{-2vt} & - \sin(x) \cos(y) \mathrm{e}^{-2vt} & 0
-			\end{vmatrix}\\
-			& \nabla \times \vec{u} = \mathrm{e}^{-2vt}\left( \frac{\partial }{\partial x} \left( -\sin(x) \cos(y)  \right) - \frac{\partial }{\partial y} \left( \cos(x) \sin(y)  \right)  \right)  \uvec{k}\\
-			& \nabla \times \vec{u} = \mathrm{e}^{-2vt}\left( - \cos(x) \cos(y)  - \cos(x) \cos(y)  \right) \uvec{k}\\
-			& \nabla \times \vec{u} = -2\mathrm{e}^{-2vt} \cos(x) \cos(y) \uvec{k}
-		\end{align*}
+		Fra \textbf{a} veit man at\[
+			 \nabla \times \vec{u} = -2\mathrm{e}^{-2vt} \cos(x) \cos(y) \uvec{k}
+		\]  
 		Og $\vec{n} = \uvec{k}$ siden den har positiv orientering om $z$. Da blir Stokes
 		 \begin{align*}
 			 &\int\limits_ \sigma \left( \nabla \times \vec{u}  \right) \cdot \vec{n} \dd{\sigma} = \int\limits_ \sigma \left( -2 \mathrm{e}^{-2vt}\cos(x) \cos(y)   \right)\uvec{k} \cdot \uvec{k} \dd{\sigma} \\
@@ -510,6 +501,23 @@ plt.show()
 			 &\int\limits_ \sigma \left( \nabla \times \vec{u}  \right) \cdot \vec{n} \dd{\sigma} =-2 \mathrm{e}^{-2vt}
 		\end{align*}
 	\subsection*{d}
+	Finner flatenormalen med formelen \[
+	\vec{n} = \frac{\nabla\beta}{\abs{\nabla \beta}}
+	\] 
+	Der
+	\begin{align*}
+		&\nabla \beta = - \frac{\partial \psi}{\partial x} \uvec{i} - \frac{\partial \psi}{\partial y} \uvec{j} + \frac{\partial z}{\partial z} \uvec{k}\\
+		&\nabla \beta = - \sin(x) \cos(y) \uvec{i} - \sin(y) \cos(x) \uvec{j} + \uvec{k}
+	\end{align*}
+	og
+	\begin{align*}
+		\abs{\nabla \beta} = \sqrt{\left( \sin(x) \cos(y)  \right) ^2 + \left( \sin(y) \cos(x)  \right) ^2 +1}
+	\end{align*}
+	Da blir flatenormalen
+	\begin{align*}
+		&\vec{n} = \frac{\nabla \beta}{\abs{\nabla \beta}}\\
+		&\vec{n} = \frac{- \sin(x) \cos(y) \uvec{i} - \sin(y) \cos(x) \uvec{j} + \uvec{k}}{\sqrt{\left( \sin(x) \cos(y)  \right) ^2 + \left( \sin(y) \cos(x)  \right) ^2 +1}}
+	\end{align*}
 	Setter $x(t) = \cos(t) $ og $y(t)=\sin(t) $ da blir \[
 		z(t) = \cos(\cos(t) ) \cos(\sin(t) ) 
 	\] 
@@ -635,61 +643,61 @@ print(f"{L:f}")
 		\] 
 		Ser så på integrallet med hensyn på $x$ 
 		\begin{align*}
-			&p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{x}
+			&p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{x}
 		\end{align*}
 		Tar integrallene hver for seg
 		\begin{align*}
-			&\int 2v \vec{u} \dd{x} = 2v \int \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} \dd{x}\\
-			&\int 2v \vec{u} \dd{x} = 2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) \\
+			&\int 2v \vec{u} \dd{x} = 2v \int \left( \cos(x) \sin(y)  - \sin(x) \cos(y)  \right) \mathrm{e}^{-2vt} \dd{x}\\
+			&\int 2v \vec{u} \dd{x} = 2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y)  - \cos(x) \cos(y)  \right) \\
 		\end{align*}
 		Ser så på
 		\begin{align*}
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \dd{x}\\
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2x) \uvec{i} \right) \\
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{x} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2x) \uvec{i}
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x)  + \sin(2y)  \right) \dd{x}\\
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{x} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2x)  \right) \\
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{x} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2x) 
 		\end{align*}
 		Observerer at det første og siste integrallet er likt bare med motsatt fortegn \[
-			&\int- 2v \vec{u} \dd{x} = -2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) \\
+			&\int- 2v \vec{u} \dd{x} = -2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y)  - \cos(x) \cos(y)  \right) \\
 		\] 
 		Da blir
 		\begin{align*}
 			&p(x,y,t) =
 			\begin{aligned}
-			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i}\\
-			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) + f(y)\\
+			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y)  - \cos(x) \cos(y)  \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x)\\ 
+			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y)  - \cos(x) \cos(y)  \right) + f(y)\\
 			\end{aligned}\\
-			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} + f(y)
+			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x)  + f(y)
 		\end{align*}
 		Ser så med hensyn på $y$ \[
-			p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{y}
+			p(x,y,t) = \int \left( 2v \vec{u} + \frac{1}{2} \left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} - 2v \vec{u} \right) \dd{y}
 		\] 
 		Tar integrallene hver for seg
 		\begin{align*}
-			&\int 2v \vec{u} \dd{y} = 2v \int \left( \cos(x) \sin(y) \uvec{i} - \sin(x) \cos(y) \uvec{j} \right) \mathrm{e}^{-2vt} \dd{y}\\
-			&\int 2v \vec{u} \dd{y} = 2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right) \\
+			&\int 2v \vec{u} \dd{y} = 2v \int \left( \cos(x) \sin(y)  - \sin(x) \cos(y)  \right) \mathrm{e}^{-2vt} \dd{y}\\
+			&\int 2v \vec{u} \dd{y} = 2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y)  + \sin(x) \sin(y)  \right) \\
 		\end{align*}
 		Ser så på
 		\begin{align*}
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \dd{y}\\
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2y) \uvec{j} \right) \\
-			&\int \frac{1}{2}\left( \sin(2x) \uvec{i} + \sin(2y) \uvec{j} \right) \mathrm{e}^{-4vt} \dd{y} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2y) \uvec{j}
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2}\mathrm{e}^{-4vt} \int \left( \sin(2x)  + \sin(2y)  \right) \dd{y}\\
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{y} = \frac{1}{2} \mathrm{e}^{-4vt} \cdot \left( - \frac{1}{2}\cos(2y)  \right) \\
+			&\int \frac{1}{2}\left( \sin(2x)  + \sin(2y)  \right) \mathrm{e}^{-4vt} \dd{y} = - \frac{1}{4}\mathrm{e}^{-4vt} \cos(2y) 
 		\end{align*}
 		Observerer at det første og siste integrallet er likt bare med motsatt fortegn \[
-			&\int- 2v \vec{u} \dd{y} = -2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y) \uvec{i} + \sin(x) \sin(y) \uvec{j} \right) \\
+			&\int- 2v \vec{u} \dd{y} = -2v \mathrm{e}^{-2vt} \left( \cos(x)  \cos(y)  + \sin(x) \sin(y) \right) \\
 		\] 
 		Da blir
 		\begin{align*}
 			&p(x,y,t) =
 			\begin{aligned}
-			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}\\
-			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) \uvec{i} - \cos(x) \cos(y) \uvec{j} \right) + g(x)\\
+			&2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) - \cos(x) \cos(y) \right) - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y)\\ 
+			&-2v \mathrm{e}^{-2vt} \left( - \sin(x) \sin(y) - \cos(x) \cos(y) \right) + g(x)\\
 			\end{aligned}\\
-			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j} + g(x)
+			&p(x,y,t) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) + g(x)
 		\end{align*}
 		Sammenligner jeg disse 2 $p$-ene så ser jeg at \[
-			g(x) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} \wedge f(y) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}
+			g(x) = - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x)  \wedge f(y) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) 
 		\] 
 		Følgelig blir \[
-			p(x,y,t) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x) \uvec{i} - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) \uvec{j}= - \frac{1}{4}\mathrm{e}^{-2vt} \left( \cos(2x) \uvec{i} + \cos(2y) \uvec{j} \right) 
+			p(x,y,t) =- \frac{1}{4}\mathrm{e}^{-4vt}\cos(2x)  - \frac{1}{4}\mathrm{e}^{-4vt}\cos(2y) = - \frac{1}{4}\mathrm{e}^{-2vt} \left( \cos(2x)  + \cos(2y)  \right) + p_0
 		\] 
 \end{document}
